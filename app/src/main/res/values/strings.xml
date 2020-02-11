@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DealIn</string>
+    <string name="login">LOGIN</string>
+    <string name="username">USERNAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="forget_pass">Forget Password?</string>
+    <string name="don_t_have_">Don\'t have an account?Sign Up</string>
+
 </resources>
