@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.Login"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="226dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/login_top" />
+
+    <TextView
+        android:id="@+id/login_txt"
+        android:layout_width="150dp"
+        android:layout_height="59dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="151dp"
+        android:gravity="top"
+
+        android:text="@string/login"
+        android:textAppearance="@style/login" />
+
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="235dp"
+        android:fontFamily="serif"
+        android:gravity="top"
+        android:text="@string/username"
+        android:textAppearance="@style/username"
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="267dp"
+        android:hint="@string/username" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="142dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="339dp"
+        android:fontFamily="serif"
+        android:gravity="top"
+        android:text="@string/password"
+        android:textAppearance="@style/password"
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="369dp"
+        android:hint="@string/password"/>
+
+    <TextView
+        android:id="@+id/forget_pass"
+        android:layout_width="152dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="207dp"
+        android:layout_marginLeft="204dp"
+        android:layout_marginTop="417dp"
+        android:fontFamily="serif"
+        android:gravity="top"
+        android:text="@string/forget_pass"
+        android:textAppearance="@style/forget_pass"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/login_but"
+        android:layout_width="163dp"
+        android:layout_height="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="198dp"
+        android:layout_marginTop="474dp"
+        android:text="@string/login" />
+
+    <TextView
+        android:id="@+id/don_t_have_"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="153dp"
+        android:layout_marginLeft="153dp"
+        android:layout_marginTop="525dp"
+        android:fontFamily="serif"
+        android:gravity="top"
+        android:text="@string/don_t_have_"
+        android:textAppearance="@style/don_t_have_"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/login_bottom" />
+
+
+</RelativeLayout>
