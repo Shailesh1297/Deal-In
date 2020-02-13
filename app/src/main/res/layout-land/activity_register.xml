@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.Register">
+
+    <View
+        android:id="@+id/register_top"
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/ic_register_top" />
+
+    <!-- <EditText
+        android:id="@+id/register_college"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="347dp"
+        android:hint="@string/college" />-->
+
+
+    <TextView
+        android:id="@+id/register_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_top"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="-18dp"
+        android:gravity="top"
+        android:text="@string/register"
+        android:textAppearance="@style/login"
+        android:textSize="36sp" />
+
+    <EditText
+        android:id="@+id/register_name"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_txt"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="2dp"
+        android:hint="@string/name" />
+
+    <!-- <EditText
+        android:id="@+id/register_course"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="400dp"
+        android:hint="@string/course" />-->
+
+    <!-- <EditText
+        android:id="@+id/register_branch"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="194dp"
+        android:layout_marginTop="402dp"
+        android:hint="@string/branch" />-->
+
+    <EditText
+        android:id="@+id/register_email"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_txt"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="372dp"
+        android:layout_marginTop="2dp"
+        android:hint="@string/email" />
+
+    <EditText
+        android:id="@+id/register_phone"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_email"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:hint="@string/phone" />
+
+    <Spinner
+        android:id="@+id/register_college_spinner"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_email"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="371dp"
+        android:layout_marginTop="6dp" />
+
+    <Spinner
+        android:id="@+id/register_course_spinner"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_phone"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="6dp" />
+
+    <Spinner
+        android:id="@+id/register_branch_spinner"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_college_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="372dp"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_course_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:hint="@string/password" />
+
+    <Button
+        android:id="@+id/register_but"
+        android:layout_width="163dp"
+        android:layout_height="46dp"
+        android:layout_below="@+id/register_branch_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="443dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/register" />
+
+    <TextView
+        android:id="@+id/already_have_account"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_but"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="398dp"
+        android:layout_marginLeft="398dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="serif"
+        android:gravity="top"
+        android:text="@string/have_an_account"
+        android:textAppearance="@style/don_t_have_"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/register_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@+id/already_have_account"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/bottom_register" />
+
+
+</RelativeLayout>

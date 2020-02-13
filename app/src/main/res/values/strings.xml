@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">DealIn</string>
     <string name="login">LOGIN</string>
-    <string name="username">USERNAME</string>
-    <string name="password">PASSWORD</string>
+    <string name="register">REGISTER</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
     <string name="forget_pass">Forget Password?</string>
     <string name="don_t_have_">Don\'t have an account?Sign Up</string>
+    <string name="have_an_account">Already have an account?Sign In</string>
+
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="college">College</string>
+    <string name="course">Course</string>
+    <string name="branch">Branch</string>
+
 </resources>
