@@ -7,6 +7,15 @@
     android:theme="@style/AppTheme"
     tools:context=".profile.Profile">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="232dp"
+        android:background="#3CC7C7">
+
+
+    </View>
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
@@ -154,5 +163,5 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="3dp"
         android:layout_marginTop="677dp"
-        android:text="LogOut" />
+        android:text="Button" />
 </RelativeLayout>
