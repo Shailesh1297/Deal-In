@@ -8,14 +8,13 @@
     android:orientation="vertical">
 
     <View
-        android:id="@+id/top"
+        android:id="@+id/login_top"
         android:layout_width="match_parent"
         android:layout_height="226dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
+
         android:background="@drawable/login_top" />
 
     <TextView
@@ -33,7 +32,7 @@
 
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/username_txt"
         android:layout_width="140dp"
         android:layout_height="30dp"
         android:layout_alignParentLeft="true"
@@ -47,6 +46,7 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/login_username_input"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -56,7 +56,7 @@
         android:hint="@string/username" />
 
     <TextView
-        android:id="@+id/password"
+        android:id="@+id/password_txt"
         android:layout_width="142dp"
         android:layout_height="30dp"
         android:layout_alignParentLeft="true"
@@ -70,13 +70,14 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/login_password_input"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="369dp"
-        android:hint="@string/password"/>
+        android:hint="@string/password" />
 
     <TextView
         android:id="@+id/forget_pass"
