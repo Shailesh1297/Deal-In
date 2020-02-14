@@ -28,7 +28,7 @@
         android:background="@drawable/ic_logo_app" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/profile_name_text"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
@@ -40,7 +40,7 @@
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/course"
+        android:id="@+id/profile_course_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
@@ -51,7 +51,7 @@
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/branch"
+        android:id="@+id/profile_branch_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
@@ -62,7 +62,7 @@
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/collage"
+        android:id="@+id/profile_collage_text"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageView"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="177dp"
+        android:layout_marginStart="186dp"
         android:layout_marginTop="200dp"
         android:text="Verified"
         android:textColor="#FFFFFF" />
@@ -156,12 +156,124 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
+        android:id="@+id/profile_update"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_collage"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="677dp"
-        android:text="Button" />
+        android:layout_marginStart="93dp"
+
+        android:layout_marginTop="59dp"
+        android:background="#3CC7C7"
+        android:text="Update"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/profile_logout"
+        android:layout_width="408dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#3CC7C7"
+        android:text="LogOut"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/profile_name"
+        android:layout_width="405dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/view"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="11dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:background="@drawable/rounded_corner_rect_white"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:paddingLeft="4dp" />
+
+    <EditText
+        android:id="@+id/profile_email"
+        android:layout_width="405dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/profile_name"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corner_rect_white"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName|text"
+        android:paddingLeft="4dp" />
+
+    <EditText
+        android:id="@+id/profile_collage"
+        android:layout_width="405dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/profile_branch"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corner_rect_white"
+        android:ems="10"
+        android:hint="@string/college"
+        android:inputType="textPersonName"
+        android:paddingLeft="4dp" />
+
+    <EditText
+        android:id="@+id/profile_branch"
+        android:layout_width="405dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/profile_course"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corner_rect_white"
+        android:ems="10"
+        android:hint="@string/course"
+        android:inputType="textPersonName"
+        android:paddingLeft="4dp" />
+
+    <EditText
+        android:id="@+id/profile_course"
+        android:layout_width="405dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/profile_phone"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corner_rect_white"
+        android:ems="10"
+        android:hint="Course"
+        android:inputType="textPersonName"
+        android:paddingLeft="4dp" />
+
+    <EditText
+        android:id="@+id/profile_phone"
+        android:layout_width="407dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/profile_email"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corner_rect_white"
+        android:ems="10"
+        android:hint="987654765"
+        android:inputType="phone"
+        android:paddingLeft="4dp" />
 </RelativeLayout>
