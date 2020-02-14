@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
+    tools:context=".profile.Profile">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="89dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="4dp"
+
+        android:background="@drawable/ic_logo_app" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="1dp"
+        android:text="Pankaj Kumar"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="27dp"
+        android:text="BCA"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/branch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="214dp"
+        android:layout_marginTop="27dp"
+        android:text="Branch"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/collage"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="53dp"
+        android:text="Chandigarh University"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/my_products"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="200dp"
+        android:text="Products"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/verified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="200dp"
+        android:text="Verified"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/my_products_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignBottom="@+id/my_products"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="178dp"
+        android:layout_marginBottom="22dp"
+        android:text="30"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/sold_products_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignBottom="@+id/sold_products"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="375dp"
+        android:layout_marginTop="179dp"
+        android:layout_marginBottom="21dp"
+        android:text="20"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="177dp" />
+
+    <TextView
+        android:id="@+id/sold_products"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="359dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="4dp"
+        android:text="Sold"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/verify_image"
+        android:layout_width="41dp"
+        android:layout_height="18dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="186dp"
+        android:layout_marginTop="175dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="677dp"
+        android:text="LogOut" />
+</RelativeLayout>
