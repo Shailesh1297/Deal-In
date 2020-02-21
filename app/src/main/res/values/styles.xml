@@ -32,5 +32,15 @@
         <item name="android:textColor">#000000</item>
     </style>
 
+    <style name="admin_menu_txt">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="dashboard_txt">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
 
 </resources>

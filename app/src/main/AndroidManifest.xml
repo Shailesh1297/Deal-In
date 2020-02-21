@@ -9,21 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".profile.Profile">
+        <activity android:name=".admin.AdminDashboard">
 
         </activity>
-        <activity android:name=".location.Location">
-
-        </activity>
-
-        <activity android:name=".register.Register"></activity>
+        <activity android:name=".test.Test" />
+        <activity android:name=".profile.Profile" />
+        <activity android:name=".location.Location" />
+        <activity android:name=".register.Register" />
         <activity android:name=".login.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".MainActivity" />
     </application>

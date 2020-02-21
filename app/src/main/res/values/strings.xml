@@ -16,4 +16,12 @@
     <string name="course">Course</string>
     <string name="branch">Branch</string>
 
+    <string name="dashboard">DASHBOARD</string>
+    <string name="colleges">Colleges</string>
+    <string name="user">Users</string>
+    <string name="courses">Courses</string>
+    <string name="locations">Locations</string>
+    <string name="categories">Categories</string>
+    <string name="report">Report</string>
+
 </resources>
