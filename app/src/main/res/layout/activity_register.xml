@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_name"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="12dp"
         android:hint="@string/email" />
 
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_email"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="12dp"
         android:hint="@string/phone" />
 
@@ -88,41 +88,44 @@
         android:layout_marginStart="194dp"
         android:layout_marginTop="402dp"
         android:hint="@string/branch" />-->
+    <Spinner
+        android:id="@+id/register_city_spinner"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_phone"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="12dp"
+        android:entries="@array/cities" />
 
     <Spinner
         android:id="@+id/register_college_spinner"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_phone"
+        android:layout_below="@+id/register_city_spinner"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp" />
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="12dp"
+        android:entries="@array/colleges" />
 
-    <Spinner
-        android:id="@+id/register_course_spinner"
-        android:layout_width="162dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_college_spinner"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp" />
 
-    <Spinner
-        android:id="@+id/register_branch_spinner"
-        android:layout_width="162dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_college_spinner"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="197dp"
-        android:layout_marginTop="12dp" />
+
+<!--    <Spinner-->
+<!--        android:id="@+id/register_branch_spinner"-->
+<!--        android:layout_width="162dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/register_college_spinner"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_marginStart="197dp"-->
+<!--        android:layout_marginTop="12dp" />-->
 
     <EditText
         android:id="@+id/register_password"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_course_spinner"
+        android:layout_below="@+id/register_college_spinner"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="12dp"
         android:hint="@string/password" />
 

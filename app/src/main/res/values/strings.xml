@@ -20,8 +20,15 @@
     <string name="colleges">Colleges</string>
     <string name="user">Users</string>
     <string name="courses">Courses</string>
+    <string name="stocks">Stocks</string>
+    <string name="suggestions">Suggestions</string>
     <string name="locations">Locations</string>
     <string name="categories">Categories</string>
     <string name="report">Report</string>
+
+
+    <string-array name="colleges"><item>Colleges</item></string-array>
+    <string-array name="cities"><item>Cities</item></string-array>
+
 
 </resources>

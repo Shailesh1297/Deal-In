@@ -115,9 +115,9 @@
         android:layout_alignTop="@+id/imageView"
         android:layout_alignBottom="@+id/sold_products"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="355dp"
-        android:layout_marginTop="179dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginStart="362dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="22dp"
         android:text="20"
         android:textAlignment="center"
         android:textColor="#FFFFFF" />
@@ -218,7 +218,7 @@
         android:id="@+id/profile_collage"
         android:layout_width="405dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/profile_branch"
+        android:layout_below="@+id/profile_city"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
@@ -230,7 +230,7 @@
         android:inputType="textPersonName"
         android:paddingLeft="4dp" />
 
-    <EditText
+   <!-- <EditText
         android:id="@+id/profile_branch"
         android:layout_width="405dp"
         android:layout_height="50dp"
@@ -244,10 +244,10 @@
         android:ems="10"
         android:hint="@string/course"
         android:inputType="textPersonName"
-        android:paddingLeft="4dp" />
+        android:paddingLeft="4dp" />-->
 
     <EditText
-        android:id="@+id/profile_course"
+        android:id="@+id/profile_city"
         android:layout_width="405dp"
         android:layout_height="50dp"
         android:layout_below="@+id/profile_phone"
@@ -258,7 +258,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/rounded_corner_rect_white"
         android:ems="10"
-        android:hint="Course"
+        android:hint="City"
         android:inputType="textPersonName"
         android:paddingLeft="4dp" />
 
