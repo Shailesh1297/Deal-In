@@ -27,8 +27,16 @@
     <string name="report">Report</string>
 
 
-    <string-array name="colleges"><item>Colleges</item></string-array>
-    <string-array name="cities"><item>Cities</item></string-array>
+    <string-array name="colleges">
+        <item>Colleges</item>
+    </string-array>
+    <string-array name="cities">
+        <item>Cities</item>
+    </string-array>
+    <string name="title_activity_college">College</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
 
 </resources>

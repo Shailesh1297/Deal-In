@@ -9,21 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin.AdminDashboard"/>
+        <activity android:name=".admin.colleges.AddColleges" android:theme="@style/customActionBar"></activity>
+        <activity android:name=".admin.AdminDashboard" android:theme="@style/customDashActionBar" />
         <activity android:name=".test.Test" />
         <activity android:name=".profile.Profile" />
-        <activity android:name=".location.Location" />
+        <activity android:name=".location.Location" android:theme="@style/customActionBar" />
         <activity android:name=".register.Register" />
-        <activity android:name=".login.Login"/>
-
-        <activity android:name=".MainActivity" >
+        <activity android:name=".login.Login" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
