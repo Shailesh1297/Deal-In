@@ -42,6 +42,10 @@
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
     <string name="add_college">Add College</string>
+<!--admin User-->
+   <string name="total">Total</string>
+    <string name="current">Current</string>
+    <string name="location">Location</string>
 
 
 

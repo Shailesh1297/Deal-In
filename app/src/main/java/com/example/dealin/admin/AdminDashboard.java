@@ -10,17 +10,25 @@ import android.widget.ImageView;
 
 import com.example.dealin.R;
 import com.example.dealin.admin.colleges.AddColleges;
+import com.example.dealin.admin.user.AdminUser;
 import com.example.dealin.location.Location;
 import com.example.dealin.profile.Profile;
 
 public class AdminDashboard extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView adminProfile,adminLocation,adminColleges;
+    ImageView adminProfile,adminLocation,adminColleges,adminUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
+        addActionBar();
+        addWidgets();
+
+    }
+
+    public void addActionBar()
+    {
 
         //actionbar customisation
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -29,14 +37,8 @@ public class AdminDashboard extends AppCompatActivity implements View.OnClickLis
         View v=getSupportActionBar().getCustomView();
         adminProfile=(ImageView)v.findViewById(R.id.profile);
         adminLocation=(ImageView)v.findViewById(R.id.location);
-        addWidgets();
-
-
-
         adminLocation.setOnClickListener(this);
         adminProfile.setOnClickListener(this);
-        adminColleges.setOnClickListener(this);
-
     }
 
     public void onClick(View v)
@@ -57,11 +59,20 @@ public class AdminDashboard extends AppCompatActivity implements View.OnClickLis
             Intent intent=new Intent(getBaseContext(), AddColleges.class);
             startActivity(intent);
         }
+        if(v==adminUser)
+        {
+            Intent intent=new Intent(getBaseContext(), AdminUser.class);
+            startActivity(intent);
+        }
     }
 
     public void addWidgets()
     {
 
         adminColleges=findViewById(R.id.add_colleges);
+        adminColleges.setOnClickListener(this);
+
+        adminUser=findViewById(R.id.admin_user);
+        adminUser.setOnClickListener(this);
     }
 }

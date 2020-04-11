@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -20,11 +21,12 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.dealin.R;
+import com.example.dealin.location.Location;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 public class AddColleges extends AppCompatActivity implements View.OnClickListener {
-    ImageView back;
+    ImageView back,location;
     FloatingActionButton floatingAdd;
     PopupWindow popupWindow;
     Button add,close;
@@ -52,6 +54,8 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
         View v=getSupportActionBar().getCustomView();
         back=(ImageView)v.findViewById(R.id.action_bar_back);
         back.setOnClickListener(this);
+        location=(ImageView)v.findViewById(R.id.action_bar_location);
+        location.setOnClickListener(this);
     }
 
     public void onClick(View v)
@@ -59,6 +63,11 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
         if(v==back)
         {
             onBackPressed();
+        }
+        if(v==location)
+        {
+            Intent intent=new Intent(getBaseContext(), Location.class);
+            startActivity(intent);
         }
         //floating button
         if(v==floatingAdd)
