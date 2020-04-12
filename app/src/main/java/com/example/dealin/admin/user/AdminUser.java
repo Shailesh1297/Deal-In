@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.dealin.R;
 import com.example.dealin.location.Location;
@@ -14,6 +15,7 @@ import com.example.dealin.location.Location;
 public class AdminUser extends AppCompatActivity implements View.OnClickListener {
 
     ImageView back,location;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,8 @@ public class AdminUser extends AppCompatActivity implements View.OnClickListener
         View v=getSupportActionBar().getCustomView();
         back=(ImageView)v.findViewById(R.id.action_bar_back);
         back.setOnClickListener(this);
-
+        title=(TextView)v.findViewById(R.id.bar_title);
+        title.setText("Users");
         location=(ImageView)v.findViewById(R.id.action_bar_location);
         location.setOnClickListener(this);
     }

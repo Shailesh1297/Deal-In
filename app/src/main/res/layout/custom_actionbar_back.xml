@@ -16,7 +16,18 @@
         android:maxHeight="40dp"
         android:src="@drawable/ic_left_arrow" />
 
-        <ImageView
+    <TextView
+        android:id="@+id/bar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/action_bar_back"
+        android:text=""
+        android:textSize="22sp" />
+
+    <ImageView
             android:id="@+id/action_bar_location"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"

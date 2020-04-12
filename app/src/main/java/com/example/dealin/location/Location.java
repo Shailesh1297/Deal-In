@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.dealin.R;
 
 public class Location extends AppCompatActivity implements View.OnClickListener {
 ImageView back,location;
+TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,8 @@ ImageView back,location;
         View v=getSupportActionBar().getCustomView();
         location=(ImageView)v.findViewById(R.id.action_bar_location);
         location.setVisibility(View.INVISIBLE);
+        title=(TextView)v.findViewById(R.id.bar_title);
+        title.setText("Location");
         back=(ImageView)v.findViewById(R.id.action_bar_back);
         back.setOnClickListener(this);
     }

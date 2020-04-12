@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin.user.AdminUser"
-            android:theme="@style/customActionBar" ></activity>
+        <activity android:name=".user.UserHome"
+            android:theme="@style/customDashActionBar" ></activity>
+        <activity
+            android:name=".admin.user.AdminUser"
+            android:theme="@style/customActionBar" />
         <activity
             android:name=".admin.colleges.AddColleges"
             android:theme="@style/customActionBar" />

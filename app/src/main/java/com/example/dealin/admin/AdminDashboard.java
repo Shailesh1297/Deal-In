@@ -29,7 +29,6 @@ public class AdminDashboard extends AppCompatActivity implements View.OnClickLis
 
     public void addActionBar()
     {
-
         //actionbar customisation
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);

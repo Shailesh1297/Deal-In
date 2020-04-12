@@ -11,22 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="192dp">
 
-        <TextView
-            android:id="@+id/user_admin_txt"
-            style="@style/user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="172dp"
-            android:layout_marginTop="6dp"
-            android:text="@string/user" />
 
         <TextView
             android:id="@+id/admin_total_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_admin_txt"
+            android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             android:layout_marginStart="40dp"
             android:layout_marginTop="9dp"
@@ -36,7 +26,7 @@
             android:id="@+id/admin_total_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_admin_txt"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="18dp"
             android:layout_marginTop="11dp"
             android:layout_toEndOf="@+id/current_user"
@@ -66,7 +56,7 @@
             android:id="@+id/user_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_admin_txt"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="100dp"
             android:layout_marginTop="12dp"
             android:layout_toEndOf="@+id/admin_total_data"
@@ -75,7 +65,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_admin_txt"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="18dp"
             android:layout_marginTop="11dp"
             android:layout_toEndOf="@+id/user_location"

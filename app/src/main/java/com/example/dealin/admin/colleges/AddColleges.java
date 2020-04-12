@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -32,6 +33,7 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
     Button add,close;
     EditText college,city;
     RelativeLayout relativeLayout;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
         View v=getSupportActionBar().getCustomView();
         back=(ImageView)v.findViewById(R.id.action_bar_back);
         back.setOnClickListener(this);
+        title=(TextView)v.findViewById(R.id.bar_title);
+        title.setText("Colleges");
         location=(ImageView)v.findViewById(R.id.action_bar_location);
         location.setOnClickListener(this);
     }
