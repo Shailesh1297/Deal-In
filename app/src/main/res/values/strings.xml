@@ -52,6 +52,24 @@
     <string name="order">Orders</string>
     <string name="products">Products</string>
     <string name="messages">Messages</string>
+    <string name="search">Search</string>
+
+    <!--sort by-->
+    <string-array name="sortby">
+        <item>Sort By</item>
+        <item>By Name</item>
+        <item>By Price</item>
+    </string-array>
+    <!--Categories-->
+    <string-array name="categories">
+        <item>Category</item>
+        <item>Stationary</item>
+        <item>Electronics</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
