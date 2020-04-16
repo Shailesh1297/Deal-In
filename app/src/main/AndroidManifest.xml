@@ -22,7 +22,10 @@
         <activity
             android:name=".admin.AdminDashboard"
             android:theme="@style/customDashActionBar" />
-        <activity android:name=".test.Test" />
+        <activity android:name=".test.Test"
+            android:theme="@style/customActionBar" >
+
+        </activity>
         <activity android:name=".profile.Profile" />
         <activity
             android:name=".location.Location"

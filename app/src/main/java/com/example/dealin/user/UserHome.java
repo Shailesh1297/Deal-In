@@ -24,7 +24,7 @@ import com.example.dealin.user.deliver.DeliverProduct;
 
 public class UserHome extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView userProfile,userLocation,home,orders,add,products,messages;
+    ImageView userProfile,userLocation,home,orders,add,deliver,messages;
 
 
     @Override
@@ -57,7 +57,7 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener 
             startActivity(intent);
         }
 
-        if(v==home || v==orders || v==add || v==products || v==messages)
+        if(v==home || v==orders || v==add || v==deliver || v==messages)
         {
             Fragment selectedFragment=null;
 
@@ -113,14 +113,14 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener 
         home=findViewById(R.id.user_home);
         orders=findViewById(R.id.user_orders);
         add=findViewById(R.id.product_add);
-        products=findViewById(R.id.user_deliver);
+        deliver=findViewById(R.id.user_deliver);
         messages=findViewById(R.id.user_messages);
 
         //listeners
         home.setOnClickListener(this);
         add.setOnClickListener(this);
         orders.setOnClickListener(this);
-        products.setOnClickListener(this);
+        deliver.setOnClickListener(this);
         messages.setOnClickListener(this);
     }
 

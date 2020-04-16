@@ -3,5 +3,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F10E"
-    tools:context=".user.add.AddProductFragment"/>
+    tools:context=".user.product.AddProductFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/layout_add_product_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corner_rect_white"
+            android:orientation="vertical"
+            android:layout_margin="2dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+            <ImageView
+                android:id="@+id/add_product_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_logo_app"/>
+            <EditText
+                android:id="@+id/add_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="product name"
+                android:minHeight="40dp"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:background="@drawable/rounded_corner_rectangle"/>
+            <EditText
+                android:id="@+id/add_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="product price"
+                android:minHeight="40dp"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:background="@drawable/rounded_corner_rectangle"/>
+
+            <Spinner
+                android:id="@+id/add_product_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:entries="@array/categories" />
+
+            <EditText
+                android:id="@+id/add_product_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner_rectangle"
+                android:hint="product description"
+                android:minHeight="40dp"
+                android:layout_margin="5dp"
+                android:padding="2dp"
+                android:gravity="start"
+                android:lines="4"
+                android:singleLine="false" />
+
+            <Button
+                android:id="@+id/add_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Save"
+                android:layout_gravity="center_horizontal"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout_add_product_top"
+            android:layout_alignParentStart="true"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/products"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ListView
+                    android:id="@+id/products_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
