@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.dealin.R;
 
@@ -15,6 +17,9 @@ import com.example.dealin.R;
  */
 public class MessageFragment extends Fragment {
 
+    Spinner msg_type;
+    ListView messages;
+    View v;
     public MessageFragment() {
         // Required empty public constructor
     }
@@ -24,6 +29,14 @@ public class MessageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_message, container, false);
+        v=inflater.inflate(R.layout.fragment_message, container, false);
+        addWidgets();
+        return v;
+    }
+
+    void addWidgets()
+    {
+        msg_type=(Spinner)v.findViewById(R.id.message_type_dropdown);
+        messages=(ListView)v.findViewById(R.id.message_list);
     }
 }

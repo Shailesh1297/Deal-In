@@ -28,16 +28,6 @@
         android:text="@string/register"
         android:textAppearance="@style/login" />
 
-    <!-- <EditText
-        android:id="@+id/register_college"
-        android:layout_width="325dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="347dp"
-        android:hint="@string/college" />-->
-
 
     <EditText
         android:id="@+id/register_name"
@@ -47,7 +37,10 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="35dp"
         android:layout_marginTop="18dp"
-        android:hint="@string/name" />
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        android:maxLength="25"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/register_email"
@@ -57,7 +50,10 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="35dp"
         android:layout_marginTop="12dp"
-        android:hint="@string/email" />
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:maxLength="25"
+        android:singleLine="true" />
 
     <EditText
         android:id="@+id/register_phone"
@@ -67,27 +63,12 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="35dp"
         android:layout_marginTop="12dp"
-        android:hint="@string/phone" />
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:maxLength="10"
+        android:singleLine="true" />
 
-    <!-- <EditText
-        android:id="@+id/register_course"
-        android:layout_width="162dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="400dp"
-        android:hint="@string/course" />-->
 
-    <!-- <EditText
-        android:id="@+id/register_branch"
-        android:layout_width="162dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="194dp"
-        android:layout_marginTop="402dp"
-        android:hint="@string/branch" />-->
     <Spinner
         android:id="@+id/register_city_spinner"
         android:layout_width="325dp"
@@ -109,16 +90,6 @@
         android:entries="@array/colleges" />
 
 
-
-<!--    <Spinner-->
-<!--        android:id="@+id/register_branch_spinner"-->
-<!--        android:layout_width="162dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/register_college_spinner"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_marginStart="197dp"-->
-<!--        android:layout_marginTop="12dp" />-->
-
     <EditText
         android:id="@+id/register_password"
         android:layout_width="325dp"
@@ -127,7 +98,10 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="35dp"
         android:layout_marginTop="12dp"
-        android:hint="@string/password" />
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:maxLength="25"
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/register_but"

@@ -3,5 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F10606"
-    tools:context=".user.orders.OrderFragment"/>
+    tools:context=".user.orders.OrderFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/order_top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/order"
+                    android:textSize="28sp"/>
+
+            </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/order_top_layout">
+                    <Spinner
+                        android:id="@+id/orders_type_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:entries="@array/orders" />
+
+                    <ListView
+                        android:id="@+id/order_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                       android:layout_below="@+id/orders_type_dropdown" />
+                </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+</FrameLayout>

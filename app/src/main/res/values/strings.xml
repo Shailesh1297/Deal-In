@@ -51,6 +51,7 @@
     <string name="home">Home</string>
     <string name="order">Orders</string>
     <string name="products">Products</string>
+    <string name="deliver">Deliver</string>
     <string name="messages">Messages</string>
     <string name="search">Search</string>
 
@@ -65,6 +66,26 @@
         <item>Category</item>
         <item>Stationary</item>
         <item>Electronics</item>
+    </string-array>
+    <!--orders-->
+    <string-array name="orders">
+        <item>All orders</item>
+        <item>Undelivered orders</item>
+        <item>Delivered orders</item>
+    </string-array>
+
+    <!--deliveries-->
+    <string-array name="deliveries">
+        <item>All deliveries</item>
+        <item>Undelivered</item>
+        <item>Delivered</item>
+    </string-array>
+
+    <!--messages-->
+    <string-array name="messages">
+        <item>All Messages</item>
+        <item>Unread Messages</item>
+        <item>Readed Messages</item>
     </string-array>
 
 

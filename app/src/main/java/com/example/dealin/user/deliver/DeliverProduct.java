@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.dealin.R;
 
@@ -15,6 +17,9 @@ import com.example.dealin.R;
  */
 public class DeliverProduct extends Fragment {
 
+    Spinner delivery_types;
+    ListView deliveries;
+    View v;
     public DeliverProduct() {
         // Required empty public constructor
     }
@@ -24,6 +29,14 @@ public class DeliverProduct extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_deliver_product, container, false);
+        v= inflater.inflate(R.layout.fragment_deliver_product, container, false);
+        addWidgets();
+        return v;
+    }
+
+    void addWidgets()
+    {
+        delivery_types=(Spinner)v.findViewById(R.id.deliver_type_dropdown);
+        deliveries=(ListView)v.findViewById(R.id.delivery_list);
     }
 }
