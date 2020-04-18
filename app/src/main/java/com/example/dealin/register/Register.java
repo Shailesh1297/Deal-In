@@ -125,13 +125,10 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         if(adapterView==cities)
         {
-
-
+            cities.setSelection(i);
              selectedCity=cities.getSelectedItem().toString();
-             cities.setSelection(i);
              collegeAdapter.clear();
               getColleges(selectedCity);
-
         }
         if(adapterView==colleges)
         {
