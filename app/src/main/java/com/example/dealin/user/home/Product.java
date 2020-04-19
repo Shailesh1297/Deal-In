@@ -1,17 +1,26 @@
 package com.example.dealin.user.home;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import java.io.InputStream;
+import java.net.URL;
+
 public class Product {
 
     private String title;
+    private int id;
     private String category;
     private String description;
     private String price;
-    private int thumbnail;
+    private Bitmap bitmap;
+    private String thumbnail;
     public Product()
     {
 
     }
-    public Product(String title, String category, String description, String price, int thumbnail) {
+    public Product(int id,String title, String category, String description, String price, String thumbnail) {
+        this.id=id;
         this.title = title;
         this.category = category;
         this.description = description;
@@ -51,11 +60,27 @@ public class Product {
         this.price = price;
     }
 
-    public int getThumbnail() {
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public Bitmap getThumbnail() throws Exception
+    {
+        bitmap= BitmapFactory.decodeStream((InputStream)new URL(thumbnail).getContent());
+        return bitmap;
+    }
+
+    public String getThumbnailString()
+    {
         return thumbnail;
     }
 
-    public void setThumbnail(int thumbnail) {
-        this.thumbnail = thumbnail;
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user.product.ShowProduct"></activity>
+        <activity android:name=".user.home.ShowProduct"
+            android:theme="@style/customActionBar"></activity>
         <activity
             android:name=".user.UserHome"
             android:theme="@style/customDashActionBar" />

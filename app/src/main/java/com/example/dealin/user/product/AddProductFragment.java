@@ -64,7 +64,6 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
     private String selectedCategory;
 
     private Bitmap bitmap=null;
-    private Uri filePath;
     String option = "";
     private int PICK_IMAGE_REQUEST = 1;
     private static final int CAMERA_REQUEST = 1888;
