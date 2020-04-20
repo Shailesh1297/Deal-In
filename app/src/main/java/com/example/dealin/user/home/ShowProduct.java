@@ -2,10 +2,17 @@ package com.example.dealin.user.home;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,7 +49,7 @@ public class ShowProduct extends AppCompatActivity implements View.OnClickListen
     Spinner paymentMode;
     Button buy;
     ArrayAdapter<String>paymentAdapter;
-    private int id;
+    private int productId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,23 +57,31 @@ public class ShowProduct extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_show_product);
         addwidgets();
         addActionBar();
+
+
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
         Intent intent=getIntent();
-         Gson gson=new Gson();
-         String pdt=intent.getExtras().getString("product");
+        Gson gson=new Gson();
+        String pdt=intent.getExtras().getString("product");
         Product product=gson.fromJson(pdt,Product.class);
         try{
-         id=product.getId();                         //intent.getExtras().getInt("id");
-        String title=product.getTitle();                //intent.getExtras().getString("Title");
-        String price=product.getPrice();                //intent.getExtras().getString("Price");
-        String category=product.getCategory();          //intent.getExtras().getString("Category");
-        String description=product.getDescription();    //intent.getExtras().getString("Description");
-        Bitmap thumbnail=product.getThumbnail();      //intent.getExtras().getString("Thumbnail");
+            productId=product.getId();                         //intent.getExtras().getInt("id");
+            String title=product.getTitle();                //intent.getExtras().getString("Title");
+            String price=product.getPrice();                //intent.getExtras().getString("Price");
+            String category=product.getCategory();          //intent.getExtras().getString("Category");
+            String description=product.getDescription();    //intent.getExtras().getString("Description");
+            Bitmap thumbnail=product.getThumbnail();      //intent.getExtras().getString("Thumbnail");
 
-        product_title.setText(title);
-        product_category.setText(category);
-        product_price.setText(price);
-        product_description.setText(description);
-        product_thumbnail.setImageBitmap(thumbnail);
+            product_title.setText(title);
+            product_category.setText(category);
+            product_price.setText(price);
+            product_description.setText(description);
+            product_thumbnail.setImageBitmap(thumbnail);
         }catch (Exception e)
         {
 
@@ -78,7 +93,6 @@ public class ShowProduct extends AppCompatActivity implements View.OnClickListen
         paymentMode.setAdapter(paymentAdapter);
         getPaymentsMethod();
         paymentMode.setOnItemSelectedListener(this);
-
 
     }
 
@@ -110,18 +124,91 @@ public class ShowProduct extends AppCompatActivity implements View.OnClickListen
     }
     @Override
     public void onClick(View view) {
+        if(view ==buy)
+        {
+            String v=venue.getText().toString();
+            if(TextUtils.isEmpty(v))
+            {
+                venue.requestFocus();
+                venue.setError("Field can't be empty");
+            }else
+            {
+                String mode=paymentMode.getSelectedItem().toString();
+                int userId=getUserId();
+                if(buyProduct(productId,mode,userId,v))
+                {
+                    AlertDialog.Builder builder=new AlertDialog.Builder(this);
+                    builder.setMessage("Product Ordered")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    onBackPressed();
+                                }
+                            });
+                    AlertDialog alert=builder.create();
+                    alert.show();
+                }
+            }
+        }
 
     }
 
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+        paymentMode.setSelection(i);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+
+
+
+    //buying products
+    private boolean buyProduct(int item_id,String mode,int buyer_id,String venue)
+    {
+        StringBuilder stringBuilder=new StringBuilder();
+        String line="";
+        String page="order";
+        try {
+            HttpURLConnection conn = Connection.createConnection();
+            //output
+            OutputStream outputStream = conn.getOutputStream();
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
+            BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+            String dataEncode = URLEncoder.encode("page", "UTF-8") + "=" + URLEncoder.encode(page, "UTF-8") +
+                    "&" + URLEncoder.encode("item_id", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(item_id), "UTF-8") +
+                    "&" + URLEncoder.encode("mode", "UTF-8") + "=" + URLEncoder.encode(mode, "UTF-8") +
+                    "&" + URLEncoder.encode("buyer_id", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(buyer_id), "UTF-8")+
+                    "&" + URLEncoder.encode("venue", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(venue), "UTF-8");
+            bufferedWriter.write(dataEncode);
+            bufferedWriter.close();
+            outputStreamWriter.close();
+            outputStream.close();
+            //input
+            InputStream inputStream = conn.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line + "\n");
+            }
+            String dataDecode = stringBuilder.toString().trim();
+
+            JSONObject jsonObject = new JSONObject(dataDecode);
+            int flag = jsonObject.getInt("flag");
+            conn.disconnect();
+            if (flag == 1) return true;
+        }
+        catch (Exception e)
+        {
+            Log.d("Order Product",e.toString());
+        }
+        return false;
     }
 
 
@@ -171,6 +258,18 @@ public class ShowProduct extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    private int getUserId()
+    {
+        SharedPreferences sharedPreferences=getSharedPreferences("USER_KEY",0);
+        String userJson=sharedPreferences.getString("user",null);
+        if(userJson!=null)
+        {
+            Gson gson=new Gson();
+            User user=gson.fromJson(userJson,User.class);
+            return user.getUserid();
+        }
+        return 0;
+    }
     void addwidgets()
     {
         product_title=findViewById(R.id.pdt_title);

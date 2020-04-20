@@ -52,21 +52,18 @@ public class HomeFragment extends Fragment {
         //strict mode
         StrictMode.ThreadPolicy threadPolicy=new StrictMode.ThreadPolicy.Builder().build();
         StrictMode.setThreadPolicy(threadPolicy);
-        allProducts(getUserId());
         recyclerView=(RecyclerView)view.findViewById(R.id.home_recycler_view);
-        RecyclerViewAdapter rva=new RecyclerViewAdapter(getActivity().getBaseContext(),productList);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getBaseContext(),3));
-        recyclerView.setAdapter(rva);
         return view;
     }
 
-    public void products()
+    @Override
+    public void onStart()
     {
-       // productList=new ArrayList<>();
-//        productList.add(new Product("Facebook","software","social networking","1599",R.drawable.facebook));
-//        productList.add(new Product("Youtube","website","video streaming","2599",R.drawable.youtube));
-//        productList.add(new Product("Twitter","website","text writing","999",R.drawable.twitter));
-//        productList.add(new Product("Instagram","software","photo sharing","1299",R.drawable.instagram));
+        super.onStart();
+        allProducts(getUserId());
+        RecyclerViewAdapter rva=new RecyclerViewAdapter(getActivity().getBaseContext(),productList);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getBaseContext(),3));
+        recyclerView.setAdapter(rva);
 
     }
 

@@ -91,6 +91,11 @@
     <!--products-->
     <string name="buy">BUY</string>
 
+    <!--order_item-->
+    <string name="product_id">ID</string>
+    <string name="product_name">NAME</string>
+    <string name="product_price">PRICE</string>
+    <string name="product_status">STATUS</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

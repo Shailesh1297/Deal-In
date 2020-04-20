@@ -22,27 +22,72 @@
 
             </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/order_top_layout">
-                    <Spinner
-                        android:id="@+id/orders_type_dropdown"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:entries="@array/orders" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/order_top_layout">
 
-                    <ListView
-                        android:id="@+id/order_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="8dp"
-                       android:layout_below="@+id/orders_type_dropdown" />
-                </RelativeLayout>
+            <Spinner
+                android:id="@+id/orders_type_dropdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="8dp"
+                android:entries="@array/orders" />
 
+            <LinearLayout
+                android:id="@+id/order_headers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/orders_type_dropdown"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_corner_appcolor_border">
 
+                <TextView
+                    style="@style/order_item_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="@string/product_id" />
 
+                <TextView
+                    style="@style/order_item_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="@string/product_name" />
+
+                <TextView
+                    style="@style/order_item_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="@string/product_price" />
+
+                <TextView
+                    style="@style/order_item_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="@string/product_status" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/order_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="8dp"
+                android:layout_below="@+id/order_headers"
+                android:layout_margin="8dp"
+               />
+        </RelativeLayout>
 
 
     </RelativeLayout>
