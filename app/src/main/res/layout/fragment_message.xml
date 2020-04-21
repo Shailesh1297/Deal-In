@@ -26,19 +26,67 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/message_top_layout">
+
             <Spinner
                 android:id="@+id/message_type_dropdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:entries="@array/messages" />
+            <LinearLayout
+                android:id="@+id/message_headers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:entries="@array/messages" />
+                android:layout_below="@+id/message_type_dropdown"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_corner_appcolor_border">
 
-            <ListView
+                <TextView
+                    style="@style/order_item_head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="From" />
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1">
+
+                   <TextView
+                       style="@style/order_item_head"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:gravity="center_horizontal"
+                       android:text="Call"
+                       android:textSize="16sp" />
+
+                   <TextView
+                       style="@style/order_item_head"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:gravity="center_horizontal"
+                       android:text="Status"
+                       android:textSize="16sp" />
+
+               </LinearLayout>
+
+            </LinearLayout>
+
+            <ExpandableListView
                 android:id="@+id/message_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:layout_below="@+id/message_type_dropdown" />
+                android:layout_below="@+id/message_headers" />
         </RelativeLayout>
 
 

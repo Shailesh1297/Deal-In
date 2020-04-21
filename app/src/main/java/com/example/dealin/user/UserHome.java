@@ -3,15 +3,18 @@ package com.example.dealin.user;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import com.example.dealin.R;
@@ -33,8 +36,17 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_user_home);
         addActionBar();
         addWidgets();
+        if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
+        {
+            requestPermission();
+        }
         getSupportFragmentManager().beginTransaction().replace(R.id.home_fragments,new HomeFragment()).commit();
 
+    }
+
+    private void requestPermission()
+    {
+        ActivityCompat.requestPermissions(UserHome.this,new String[]{Manifest.permission.CALL_PHONE},1);
     }
     public void addActionBar()
     {

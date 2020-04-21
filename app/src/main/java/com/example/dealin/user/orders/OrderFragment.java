@@ -55,13 +55,18 @@ public class OrderFragment extends Fragment {
         // Inflate the layout for this fragment
         v=inflater.inflate(R.layout.fragment_order, container, false);
         addWidgets();
-        getOrders(getUserId());
-        OrderAdapter odap=new OrderAdapter(getActivity().getApplicationContext(),order);
-        orders.setAdapter(odap);
+        if(getOrders(getUserId()))
+        {
+            OrderAdapter odap=new OrderAdapter(getActivity().getApplicationContext(),order);
+            orders.setAdapter(odap);
+        }
+
         return v;
     }
 
-    public void getOrders(int user_id)
+
+
+    public boolean getOrders(int user_id)
     {
 
         StringBuilder stringBuilder=new StringBuilder();
@@ -117,6 +122,8 @@ public class OrderFragment extends Fragment {
                     od.setSellerMobile(jsonObject.getString("mobile"));
                     order.add(od);
                 }
+                conn.disconnect();
+                return true;
 
             }
 
@@ -126,6 +133,8 @@ public class OrderFragment extends Fragment {
         {
             Log.d("Order",e.toString());
         }
+
+        return false;
 
     }
     private int getUserId()

@@ -59,15 +59,13 @@ public class ShowOrder extends AppCompatActivity implements View.OnClickListener
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
+
     @Override
     public void onClick(View view) {
       Intent intentCall=new Intent(Intent.ACTION_CALL);
       String phno=sellerPhone.getText().toString();
-      if(!phno.trim().isEmpty())
-      {
-          intentCall.setData(Uri.parse("tel:"+phno));
-      }
+      intentCall.setData(Uri.parse("tel:"+phno));
+
       if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
       {
           requestPermission();

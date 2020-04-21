@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/message_head">
+
+    <TextView
+        android:id="@+id/message_from"
+        style="@style/order_item"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="FROM"
+        android:textSize="16sp" />
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+
+      <ImageView
+          android:id="@+id/call_message_sender"
+          android:layout_width="wrap_content"
+          android:layout_height="40dp"
+          android:layout_marginRight="30dp"
+          android:layout_weight="1"
+          android:minWidth="40dp"
+          android:src="@drawable/ic_call_blue_24dp" />
+
+
+      <ImageView
+          android:id="@+id/message_status"
+          android:layout_width="wrap_content"
+          android:layout_height="40dp"
+          android:layout_marginRight="5dp"
+          android:layout_weight="1"
+          android:minWidth="40dp"
+          android:src="@drawable/ic_undelivered_24dp" />
+  </LinearLayout>
+
+
+</LinearLayout>

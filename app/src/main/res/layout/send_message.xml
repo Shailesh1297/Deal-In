@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corner_appcolor_border">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/message_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Date(DD/MM/YY)"
+            android:inputType="date"
+            android:maxLength="8"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/message_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Time(HH:MM)"
+            android:inputType="time"
+            android:maxLength="5"
+            android:singleLine="true" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/message_venue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_corner_rectangle"
+        android:hint="Venue"
+        android:singleLine="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="3dp"
+        android:background="#FFFFFF">
+        <Button
+            android:id="@+id/send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/appColor"
+            android:layout_margin="5dp"
+            android:text="Send" />
+        <Button
+            android:id="@+id/cancel_message"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/appColor"
+            android:layout_margin="5dp"
+            android:text="@string/cancel" />
+
+    </LinearLayout>
+
+</LinearLayout>
