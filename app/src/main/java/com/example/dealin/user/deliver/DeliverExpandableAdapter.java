@@ -219,7 +219,14 @@ public class DeliverExpandableAdapter extends BaseExpandableListAdapter {
    delivered.setOnClickListener(new View.OnClickListener() {
        @Override
        public void onClick(View view) {
-           Toast.makeText(context,"delivered"+order_id,Toast.LENGTH_SHORT).show();
+           Toast.makeText(context,"order-id:"+order_id,Toast.LENGTH_SHORT).show();
+           if(completeDelivery(order_id))
+           {
+               Toast.makeText(context,"delivered",Toast.LENGTH_SHORT).show();
+           }else
+           {
+               Toast.makeText(context,"Something went wrong!",Toast.LENGTH_SHORT).show();
+           }
        }
    });
 
@@ -229,6 +236,47 @@ public class DeliverExpandableAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int i, int i1) {
         return true;
+    }
+
+    //delivery
+    private boolean completeDelivery(int order_id)
+    {
+        StringBuilder stringBuilder=new StringBuilder();
+        String line="";
+        String page="complete_delivery";
+        try {
+            HttpURLConnection conn = Connection.createConnection();
+            //output
+            OutputStream outputStream = conn.getOutputStream();
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
+            BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+            String dataEncode = URLEncoder.encode("page", "UTF-8") + "=" + URLEncoder.encode(page, "UTF-8") +
+                    "&" + URLEncoder.encode("order_id", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(order_id), "UTF-8");
+            bufferedWriter.write(dataEncode);
+            bufferedWriter.close();
+            outputStreamWriter.close();
+            outputStream.close();
+            //input
+            InputStream inputStream = conn.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line + "\n");
+            }
+            String dataDecode = stringBuilder.toString().trim();
+
+            JSONObject jsonObject = new JSONObject(dataDecode);
+            int flag = jsonObject.getInt("flag");
+            Log.d("flagData", "" + flag);
+            conn.disconnect();
+            if (flag == 1) return true;
+        }
+        catch (Exception e)
+        {
+            Log.d("Complete Delivery",e.toString());
+        }
+        return false;
     }
 
 
