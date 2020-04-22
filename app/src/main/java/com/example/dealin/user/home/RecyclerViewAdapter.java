@@ -55,12 +55,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                    try {
                        Intent intent = new Intent(mContext, ShowProduct.class);
-                      /* intent.putExtra("id",mData.get(position).getId());
-                       intent.putExtra("Title", mData.get(position).getTitle());
-                       intent.putExtra("Price", mData.get(position).getPrice());
-                       intent.putExtra("Category", mData.get(position).getCategory());
-                       intent.putExtra("Description", mData.get(position).getDescription());
-                       intent.putExtra("Thumbnail",mData.get(position).getThumbnailString());*/
                         Gson gson=new Gson();
                         String pdt=gson.toJson(mData.get(position),Product.class);
                         intent.putExtra("product",pdt);

@@ -107,7 +107,6 @@ public class ShowProduct extends AppCompatActivity implements View.OnClickListen
         location.setVisibility(View.INVISIBLE);
         title=(TextView)v.findViewById(R.id.bar_title);
         title.setVisibility(View.INVISIBLE);
-
         back=(ImageView)v.findViewById(R.id.action_bar_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

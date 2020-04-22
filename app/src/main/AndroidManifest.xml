@@ -16,8 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".user.orders.ShowOrder"
-            android:theme="@style/customActionBar"></activity>
+        <activity android:name=".user.product.UserProduct"
+            android:theme="@style/customActionBar" ></activity>
+        <activity
+            android:name=".user.orders.ShowOrder"
+            android:theme="@style/customActionBar" />
         <activity
             android:name=".user.home.ShowProduct"
             android:theme="@style/customActionBar" />
@@ -35,7 +38,7 @@
             android:theme="@style/customDashActionBar" />
         <activity
             android:name=".test.Test"
-            android:theme="@style/customActionBar"></activity>
+            android:theme="@style/customActionBar" />
         <activity android:name=".profile.Profile" />
         <activity
             android:name=".location.Location"

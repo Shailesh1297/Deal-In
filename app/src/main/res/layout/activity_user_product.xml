@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.product.UserProduct">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/update_product_image"
+                android:layout_width="145dp"
+                android:layout_height="170dp"
+                android:background="#FFFFFF"
+                />
+
+
+            <TextView
+                android:id="@+id/update_product_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#ededec"
+                android:padding="8dp"
+                android:text="Category" />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp">
+
+    <EditText
+        android:id="@+id/update_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:maxLength="25"
+        android:minHeight="40dp"
+        android:padding="2dp"
+        android:layout_margin="5dp"
+        android:hint="ProductName"
+        android:inputType="text"
+        android:background="@drawable/rounded_corner_rectangle"/>
+    <EditText
+        android:id="@+id/update_product_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:maxLength="25"
+        android:minHeight="40dp"
+        android:padding="2dp"
+        android:layout_margin="5dp"
+        android:hint="ProductPrice"
+        android:inputType="numberDecimal"
+        android:background="@drawable/rounded_corner_rectangle"/>
+    <EditText
+        android:id="@+id/update_product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:maxLength="50"
+        android:minHeight="40dp"
+        android:padding="2dp"
+        android:layout_margin="5dp"
+        android:hint="Description"
+        android:background="@drawable/rounded_corner_rectangle"/>
+
+</LinearLayout>
+            <TextView
+                android:id="@+id/update_sold_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The product is sold, can't be updated"/>
+            <Button
+                android:id="@+id/update_product_but"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update"/>
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

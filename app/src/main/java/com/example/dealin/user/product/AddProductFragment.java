@@ -27,12 +27,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.dealin.R;
 import com.example.dealin.connection.Connection;
 import com.example.dealin.login.User;
+import com.example.dealin.user.home.Product;
+import com.example.dealin.user.orders.Order;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -47,6 +50,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -60,9 +64,10 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
     ImageView pdt_img;
     Button save;
     View v;
+    ListView productList;
     ArrayAdapter<String>categoryAdapter;
     private String selectedCategory;
-
+    ArrayList<Product> userProduct;
     private Bitmap bitmap=null;
     String option = "";
     private int PICK_IMAGE_REQUEST = 1;
@@ -88,7 +93,17 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
         return v;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
 
+        if(userProducts(getUserId()))
+        {
+            UserProductAdapter upa=new UserProductAdapter(getActivity().getBaseContext(),userProduct);
+            productList.setAdapter(upa);
+        }
+
+    }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -156,6 +171,7 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
                    pdt_category.setSelection(0);
                    pdt_img.setImageResource(R.drawable.ic_photo_camera_blue_24dp);
                    bitmap=null;
+                   onStart();
                }
                else
                {
@@ -313,6 +329,73 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
         return 0;
     }
 
+    //get user products
+
+    private boolean userProducts(int user_id)
+    {
+        StringBuilder stringBuilder=new StringBuilder();
+        String line="";
+        String page="user_products";
+        try{
+            HttpURLConnection conn= Connection.createConnection();
+            //output
+            OutputStream outputStream=conn.getOutputStream();
+            OutputStreamWriter outputStreamWriter=new OutputStreamWriter(outputStream,"UTF-8");
+            BufferedWriter bufferedWriter=new BufferedWriter(outputStreamWriter);
+            String dataEncode= URLEncoder.encode("page","UTF-8")+"="+URLEncoder.encode(page,"UTF-8")+
+                    "&" + URLEncoder.encode("user_id", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(user_id), "UTF-8");
+            bufferedWriter.write(dataEncode);
+            bufferedWriter.close();
+            outputStreamWriter.close();
+            outputStream.close();
+
+            //input
+            InputStream inputStream=conn.getInputStream();
+            InputStreamReader inputStreamReader=new InputStreamReader(inputStream,"UTF-8");
+            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
+            while((line=bufferedReader.readLine())!=null)
+            {
+                stringBuilder.append(line+"\n");
+            }
+
+            String dataDecode=stringBuilder.toString().trim();
+            JSONObject jsonObject=new JSONObject(dataDecode);
+
+            //  JSONObject jsonData=jsonObject.getJSONObject("flag");
+            int flag=jsonObject.getInt("flag");
+            if(flag==1)
+            {
+                JSONArray jsonArray=jsonObject.getJSONArray("0");
+                int length=jsonArray.length();
+
+                userProduct=new ArrayList<>();
+                for(int i=0;i<length;i++)
+                {
+                    jsonObject=jsonArray.getJSONObject(i)  ;
+                    Product pdt=new Product();
+                    pdt.setId(jsonObject.getInt("item_id"));
+                    pdt.setTitle(jsonObject.getString("item_name"));
+                    pdt.setPrice(jsonObject.getString("item_price"));
+                    pdt.setCategory(jsonObject.getString("category"));
+                    pdt.setDescription(jsonObject.getString("description"));
+                    pdt.setThumbnail(jsonObject.getString("image"));
+                    userProduct.add(pdt);
+                }
+                conn.disconnect();
+                return true;
+
+            }
+
+            conn.disconnect();
+
+        }catch (Exception e)
+        {
+            Log.d("UserProduct",e.toString());
+        }
+
+        return false;
+    }
+
 
     //camera permissions
     private boolean isReadStorageAllowed()
@@ -355,6 +438,7 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
         pdt_img.setOnClickListener(this);
         save=(Button)v.findViewById(R.id.add_product);
         save.setOnClickListener(this);
+        productList=(ListView)v.findViewById(R.id.products_list);
     }
 
 

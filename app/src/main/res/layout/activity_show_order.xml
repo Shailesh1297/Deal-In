@@ -64,6 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="Pay Mode"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -72,6 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="Amount"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -80,6 +82,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="Venue"
                         android:textSize="18sp"
                         android:textStyle="bold" />
