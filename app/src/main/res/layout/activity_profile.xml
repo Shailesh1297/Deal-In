@@ -12,162 +12,171 @@
         android:layout_width="match_parent"
         android:layout_height="232dp"
         android:background="#3CC7C7">
-
-
     </View>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="89dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="4dp"
-
-        android:background="@drawable/ic_logo_app" />
-
-    <TextView
-        android:id="@+id/profile_name_text"
-        android:layout_width="165dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:orientation="vertical"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="1dp"
-        android:text="Pankaj Kumar"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF" />
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_logo_app"
+            android:layout_margin="6dp"
+            android:layout_gravity="center_horizontal"/>
 
-    <TextView
-        android:id="@+id/profile_course_text"
-        android:layout_width="wrap_content"
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="27dp"
-        android:text="BCA"
-        android:textColor="#FFFFFF" />
+        android:layout_alignBottom="@+id/view"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/profile_branch_text"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/profile_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:gravity="center"
+            android:text="Pankaj Kumar"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/profile_college_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:gravity="center"
+            android:text="Chandigarh University"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/profile_city_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:gravity="center"
+            android:text="Mohali"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+
+
+<LinearLayout
+    android:id="@+id/profile_basic_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/view"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <EditText
+        android:id="@+id/profile_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="214dp"
-        android:layout_marginTop="27dp"
-        android:text="Branch"
-        android:textColor="#FFFFFF" />
+        android:background="@drawable/rounded_corner_rect_white"
+        android:hint="Name"
+        android:layout_margin="5dp"
+        android:paddingLeft="4dp"
+        android:maxLength="25"
+        android:singleLine="true"
+        android:minHeight="40dp"
+        android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/profile_collage_text"
-        android:layout_width="151dp"
+    <EditText
+        android:id="@+id/profile_email"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="53dp"
-        android:text="Chandigarh University"
-        android:textColor="#FFFFFF" />
+        android:background="@drawable/rounded_corner_rect_white"
+        android:hint="Email"
+        android:layout_margin="5dp"
+        android:paddingLeft="4dp"
+        android:inputType="textPersonName|text"
+        android:maxLength="25"
+        android:singleLine="true"
+        android:minHeight="40dp"/>
 
-    <TextView
-        android:id="@+id/my_products"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/profile_phone"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="200dp"
-        android:text="Products"
-        android:textColor="#FFFFFF" />
+        android:background="@drawable/rounded_corner_rect_white"
+        android:hint="987654765"
+        android:layout_margin="5dp"
+        android:paddingLeft="4dp"
+        android:inputType="phone"
+        android:maxLength="25"
+        android:singleLine="true"
+        android:minHeight="40dp"/>
 
-    <TextView
-        android:id="@+id/verified"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="186dp"
-        android:layout_marginTop="200dp"
-        android:text="Verified"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/my_products_no"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignBottom="@+id/my_products"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="178dp"
-        android:layout_marginBottom="22dp"
-        android:text="30"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/sold_products_no"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignBottom="@+id/sold_products"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="362dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="22dp"
-        android:text="20"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/verify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="177dp" />
-
-    <TextView
-        android:id="@+id/sold_products"
-        android:layout_width="44dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="350dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="13dp"
-        android:text="Sold"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF" />
-
-    <ImageView
-        android:id="@+id/verify_image"
-        android:layout_width="41dp"
-        android:layout_height="18dp"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="186dp"
-        android:layout_marginTop="175dp"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/profile_update"
-        android:layout_width="225dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_collage"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="93dp"
-
-        android:layout_marginTop="59dp"
         android:background="#3CC7C7"
         android:text="Update"
-        android:textAlignment="center"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal"
         android:textColor="#FFFFFF" />
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/profile_basic_info"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reset Password"
+            android:layout_margin="5dp"
+            android:textSize="28sp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/old_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_rect_white"
+            android:hint="Old password"
+            android:layout_margin="5dp"
+            android:inputType="text"
+            android:paddingLeft="4dp"
+            android:maxLength="25"
+            android:singleLine="true"
+            android:minHeight="40dp"/>
+        <EditText
+            android:id="@+id/new_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_rect_white"
+            android:hint="New password"
+            android:layout_margin="5dp"
+            android:paddingLeft="4dp"
+            android:inputType="text"
+            android:maxLength="25"
+            android:singleLine="true"
+            android:minHeight="40dp"/>
+        <Button
+            android:id="@+id/password_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#3CC7C7"
+            android:text="CHANGE"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/profile_logout"
@@ -182,98 +191,5 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF" />
 
-    <EditText
-        android:id="@+id/profile_name"
-        android:layout_width="405dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/view"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="11dp"
 
-        android:layout_marginEnd="8dp"
-
-        android:background="@drawable/rounded_corner_rect_white"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:paddingLeft="4dp" />
-
-    <EditText
-        android:id="@+id/profile_email"
-        android:layout_width="405dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/profile_name"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_corner_rect_white"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName|text"
-        android:paddingLeft="4dp" />
-
-    <EditText
-        android:id="@+id/profile_collage"
-        android:layout_width="405dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/profile_city"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_corner_rect_white"
-        android:ems="10"
-        android:hint="@string/college"
-        android:inputType="textPersonName"
-        android:paddingLeft="4dp" />
-
-   <!-- <EditText
-        android:id="@+id/profile_branch"
-        android:layout_width="405dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/profile_course"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_corner_rect_white"
-        android:ems="10"
-        android:hint="@string/course"
-        android:inputType="textPersonName"
-        android:paddingLeft="4dp" />-->
-
-    <EditText
-        android:id="@+id/profile_city"
-        android:layout_width="405dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/profile_phone"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_corner_rect_white"
-        android:ems="10"
-        android:hint="City"
-        android:inputType="textPersonName"
-        android:paddingLeft="4dp" />
-
-    <EditText
-        android:id="@+id/profile_phone"
-        android:layout_width="407dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/profile_email"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_corner_rect_white"
-        android:ems="10"
-        android:hint="987654765"
-        android:inputType="phone"
-        android:paddingLeft="4dp" />
 </RelativeLayout>
