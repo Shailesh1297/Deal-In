@@ -155,6 +155,7 @@ public class DeliverProduct extends Fragment  {
     void addWidgets()
     {
         delivery_types=(Spinner)v.findViewById(R.id.deliver_type_dropdown);
+        delivery_types.setVisibility(View.GONE);
         deliveries=(ExpandableListView)v.findViewById(R.id.delivery_list);
 
     }

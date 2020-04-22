@@ -153,6 +153,7 @@ public class OrderFragment extends Fragment {
     void addWidgets()
     {
         order_type=(Spinner)v.findViewById(R.id.orders_type_dropdown);
+        order_type.setVisibility(View.GONE);
         orders=(ListView)v.findViewById(R.id.order_list);
     }
 }

@@ -142,6 +142,7 @@ public class MessageFragment extends Fragment {
     void addWidgets()
     {
         msg_type=(Spinner)v.findViewById(R.id.message_type_dropdown);
+        msg_type.setVisibility(View.GONE);
         messages=(ExpandableListView)v.findViewById(R.id.message_list);
     }
 }

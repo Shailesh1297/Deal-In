@@ -14,9 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-
-import android.widget.Toast;
-
 import com.example.dealin.R;
 import com.example.dealin.profile.Profile;
 import com.example.dealin.user.product.AddProductFragment;
@@ -105,12 +102,12 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Toast.makeText(this,"Menu",Toast.LENGTH_SHORT).show();
         switch(item.getItemId())
         {
-            case R.id.about_us:
+
+            case R.id.suggestions:
                 break;
-            case R.id.settings:
+            case R.id.about_us:
                 break;
             default:
 

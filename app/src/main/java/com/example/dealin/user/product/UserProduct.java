@@ -42,7 +42,7 @@ import java.net.URLEncoder;
 
 public class UserProduct extends AppCompatActivity implements View.OnClickListener {
   ImageView location,back,updateProductImage;
-  Button update;
+  Button update,delete;
   TextView title,alert,updateProductCategory;
   EditText updateProductName,updateProductPrice,updateProductDescription;
     private Bitmap bitmap=null;
@@ -79,6 +79,7 @@ public class UserProduct extends AppCompatActivity implements View.OnClickListen
                 }else{
                     alert.setVisibility(View.GONE);
                     update.setOnClickListener(this);
+                    delete.setOnClickListener(this);
                     updateProductImage.setOnClickListener(this);
                 }
 
@@ -126,7 +127,35 @@ public class UserProduct extends AppCompatActivity implements View.OnClickListen
                     }
                 }
             }
+            //item deletion
+             if(view==delete)
+             {
 
+                        AlertDialog.Builder alert=new AlertDialog.Builder(UserProduct.this);
+                        alert.setTitle("Are You Sure?");
+                        alert.setMessage("Confirm to Delete Product");
+                        alert.setCancelable(false);
+                        alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if(deleteProduct(itemId))
+                                {
+                                    onBackPressed();
+                                }
+                            }
+                        });
+                        alert.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+
+                        AlertDialog ad=alert.create();
+                        ad.show();
+
+             }
+        //photo updation
             if(view==updateProductImage)
             {
                 if (isReadStorageAllowed())
@@ -240,6 +269,55 @@ public class UserProduct extends AppCompatActivity implements View.OnClickListen
         return false;
     }
 
+    //delete product
+    private boolean deleteProduct(int item_id)
+    {
+
+        StringBuilder stringBuilder=new StringBuilder();
+        String line="";
+        String page="delete_product";
+        try {
+            HttpURLConnection conn = Connection.createConnection();
+            //output
+            OutputStream outputStream = conn.getOutputStream();
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
+            BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+            String dataEncode = URLEncoder.encode("page", "UTF-8") + "=" + URLEncoder.encode(page, "UTF-8") +
+                    "&" + URLEncoder.encode("item_id", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(item_id), "UTF-8");
+
+            bufferedWriter.write(dataEncode);
+            bufferedWriter.close();
+            outputStreamWriter.close();
+            outputStream.close();
+            //input
+            InputStream inputStream = conn.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line + "\n");
+            }
+            String dataDecode = stringBuilder.toString().trim();
+
+            JSONObject jsonObject = new JSONObject(dataDecode);
+            int flag = jsonObject.getInt("flag");
+            Log.d("flagData", "" + flag);
+            conn.disconnect();
+            if (flag == 1)
+            {
+                Toast.makeText(this,"Product Deleted",Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        }
+        catch (Exception e)
+        {
+            Log.d("Update Products",e.toString());
+        }
+        Toast.makeText(this,"Something Wrong",Toast.LENGTH_SHORT).show();
+        return false;
+    }
+
+
     //updating product data
     private boolean updateProduct(int item_id,String item_name,float item_price,String description,String image,String image_name)
     {
@@ -317,6 +395,7 @@ public class UserProduct extends AppCompatActivity implements View.OnClickListen
         updateProductCategory=findViewById(R.id.update_product_category);
         updateProductImage=findViewById(R.id.update_product_image);
         update=findViewById(R.id.update_product_but);
+        delete=findViewById(R.id.delete_product_but);
         alert=findViewById(R.id.update_sold_message);
 
     }
@@ -327,6 +406,7 @@ public class UserProduct extends AppCompatActivity implements View.OnClickListen
         updateProductPrice.setFocusable(false);
         updateProductDescription.setFocusable(false);
         update.setVisibility(View.GONE);
+        delete.setVisibility(View.GONE);
     }
 
 

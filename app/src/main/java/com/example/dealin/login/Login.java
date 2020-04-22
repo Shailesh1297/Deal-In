@@ -18,7 +18,6 @@ import com.example.dealin.R;
 import com.example.dealin.admin.AdminDashboard;
 import com.example.dealin.connection.Connection;
 import com.example.dealin.register.Register;
-import com.example.dealin.test.Test;
 import com.example.dealin.user.UserHome;
 import com.google.gson.Gson;
 

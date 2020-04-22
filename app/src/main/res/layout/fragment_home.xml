@@ -10,31 +10,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/home_college_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#B1EFDA16"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="CollegeName"
+            android:textAllCaps="true"
+            android:textColor="@color/appColor"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"/>
+
         <LinearLayout
+            android:id="@+id/home_filters"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <EditText
                     android:id="@+id/search_home_products"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:minHeight="40dp"
                     android:background="@drawable/rounded_corner_rectangle"
                     android:drawableLeft="@drawable/search_icon"
-                    />
+                    android:minHeight="40dp" />
+
                 <Button
                     android:id="@+id/user_home_search_but"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="@string/search"
-                    />
+                    android:text="@string/search" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,19 +75,21 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:entries="@array/categories" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
+            android:orientation="vertical"
             android:paddingStart="13dp"
-            android:orientation="vertical">
+            android:paddingTop="10dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home_recycler_view"
