@@ -20,7 +20,8 @@
             android:theme="@style/customActionBar"></activity>
         <activity android:name=".feedback.About"
             android:theme="@style/customActionBar"/>
-        <activity android:name=".feedback.Suggestions" />
+        <activity android:name=".feedback.Suggestions"
+            android:theme="@style/customActionBar" />
         <activity
             android:name=".user.product.UserProduct"
             android:theme="@style/customActionBar" />
