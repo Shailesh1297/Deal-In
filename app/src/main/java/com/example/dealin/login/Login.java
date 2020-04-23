@@ -36,7 +36,7 @@ import java.net.URLEncoder;
 public class Login extends AppCompatActivity {
 
     Button login;
-    TextView register;
+    TextView register,forgetPass;
     EditText email,password;
     private int userType;
     @Override
@@ -95,6 +95,14 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getBaseContext(), Register.class);
+                startActivity(intent);
+            }
+        });
+
+        forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getBaseContext(), ForgetPassword.class);
                 startActivity(intent);
             }
         });
@@ -187,5 +195,6 @@ public class Login extends AppCompatActivity {
         register=findViewById(R.id.don_t_have_);
         email=findViewById(R.id.login_email_input);
         password=findViewById(R.id.login_password_input);
+        forgetPass=findViewById(R.id.forget_pass);
     }
 }
