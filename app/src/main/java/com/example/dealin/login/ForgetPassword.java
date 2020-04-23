@@ -142,7 +142,7 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
         location=(ImageView)v.findViewById(R.id.action_bar_location);
         location.setVisibility(View.INVISIBLE);
         title=(TextView)v.findViewById(R.id.bar_title);
-        title.setVisibility(View.INVISIBLE);
+        title.setText("Reset Password");
         back=(ImageView)v.findViewById(R.id.action_bar_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

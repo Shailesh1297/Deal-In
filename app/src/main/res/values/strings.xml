@@ -97,6 +97,23 @@
     <string name="product_price">PRICE</string>
     <string name="product_status">STATUS</string>
 
+    <!--project description-->
+    <string name="project_description">
+        Project-Type: MAJOR\n
+        Project-Name: DealIn \n
+        Based-On: BUY and SELL in Campus\n
+        Course: BCA(2017-2020)
+    </string>
+    <string name="developer_words">
+       I have dedicated my whole week and half in developing the app.\n
+        I haven\'t sleep enough or say doesn\'t had a good sleep in previous weeks\n
+        My team developer are having a good time in their homes and are not much bothered about project\n
+        As they haven\'t ask me for project work or guidance. \n
+        But I am very thankful to me for showing such dedication in making this app in this crucial time.\n
+        Jai Shree Ram! :)\n
+        -Uchiha Itachi
+    </string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

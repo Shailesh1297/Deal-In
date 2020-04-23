@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import com.example.dealin.R;
+import com.example.dealin.feedback.About;
+import com.example.dealin.feedback.Suggestions;
 import com.example.dealin.profile.Profile;
 import com.example.dealin.user.product.AddProductFragment;
 import com.example.dealin.user.home.HomeFragment;
@@ -102,12 +104,18 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent=null;
         switch(item.getItemId())
         {
 
             case R.id.suggestions:
+                                intent=new Intent(UserHome.this, Suggestions.class);
+                                startActivity(intent);
+
                 break;
             case R.id.about_us:
+                                 intent=new Intent(UserHome.this, About.class);
+                                startActivity(intent);
                 break;
             default:
 

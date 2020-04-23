@@ -18,7 +18,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".login.ForgetPassword"
             android:theme="@style/customActionBar"></activity>
-        <activity android:name=".feedback.About" />
+        <activity android:name=".feedback.About"
+            android:theme="@style/customActionBar"/>
         <activity android:name=".feedback.Suggestions" />
         <activity
             android:name=".user.product.UserProduct"
