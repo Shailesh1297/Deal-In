@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
     TextView collegeName;
     LinearLayout ll;
     String college;
-    int collegId;
+    int collegId,userId;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -69,16 +69,22 @@ public class HomeFragment extends Fragment {
     public void onStart()
     {
         super.onStart();
-        allProducts(getUserId());
+        userId=getUserId();
         getCollege(collegId);
         collegeName.setText(college);
-        RecyclerViewAdapter rva=new RecyclerViewAdapter(getActivity().getBaseContext(),productList);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getBaseContext(),3));
-        recyclerView.setAdapter(rva);
+
+        if(allProducts(userId))
+        {
+            RecyclerViewAdapter rva=new RecyclerViewAdapter(getActivity().getBaseContext(),productList);
+            recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getBaseContext(),3));
+            recyclerView.setAdapter(rva);
+         }
+
+
 
     }
 
-    public void allProducts(int user_id)
+    public boolean allProducts(int user_id)
     {
         StringBuilder stringBuilder=new StringBuilder();
         String line="";
@@ -106,30 +112,40 @@ public class HomeFragment extends Fragment {
             }
 
             String dataDecode=stringBuilder.toString().trim();
-            JSONArray jsonArray=new JSONArray(dataDecode);
-            int length=jsonArray.length();
-            JSONObject jsonObject=null;
-            productList=new ArrayList<>();
-            for(int i=0;i<length;i++)
+            JSONObject jsonObject=new JSONObject(dataDecode);
+
+            //  JSONObject jsonData=jsonObject.getJSONObject("flag");
+            int flag=jsonObject.getInt("flag");
+            if(flag==1)
             {
-                jsonObject=jsonArray.getJSONObject(i);
-                Product pdt=new Product();
-                pdt.setId(jsonObject.getInt("item_id"));
-                pdt.setTitle(jsonObject.getString("item_name"));
-                pdt.setPrice(jsonObject.getString("item_price"));
-                pdt.setCategory(jsonObject.getString("category"));
-                pdt.setDescription(jsonObject.getString("description"));
-                pdt.setThumbnail(jsonObject.getString("image"));
-                productList.add(pdt);
+                JSONArray jsonArray=jsonObject.getJSONArray("0");
+                int length=jsonArray.length();
+
+                productList=new ArrayList<>();
+                for(int i=0;i<length;i++)
+                {
+                    jsonObject=jsonArray.getJSONObject(i);
+                    Product pdt=new Product();
+                    pdt.setId(jsonObject.getInt("item_id"));
+                    pdt.setTitle(jsonObject.getString("item_name"));
+                    pdt.setPrice(jsonObject.getString("item_price"));
+                    pdt.setCategory(jsonObject.getString("category"));
+                    pdt.setDescription(jsonObject.getString("description"));
+                    pdt.setThumbnail(jsonObject.getString("image"));
+                    productList.add(pdt);
+                }
+                conn.disconnect();
+                return true;
 
             }
 
             conn.disconnect();
+
         }catch (Exception e)
         {
             Log.d("All products",e.toString());
         }
-
+             return false;
     }
 
     //get College Name
