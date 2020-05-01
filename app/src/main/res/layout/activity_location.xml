@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".location.Location">
 
-
-    <EditText
-        android:id="@+id/location_search"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_margin="6dp">
 
-        android:layout_marginTop="13dp"
-        android:background="@drawable/rounded_corner_rectangle"
-        android:drawableLeft="@drawable/search_icon"
-        android:hint="Location"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:text="City"
+            android:textStyle="bold" />
+        <Spinner
+            android:id="@+id/city_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/city_college_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:dividerHeight="3dp"
+        android:background="@drawable/rounded_corner_rectangle"/>
 
-
-        />
-</RelativeLayout>
+</LinearLayout>

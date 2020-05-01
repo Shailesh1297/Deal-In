@@ -16,11 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".login.ForgetPassword"
-            android:theme="@style/customActionBar"></activity>
-        <activity android:name=".feedback.About"
+        <activity android:name=".admin.transactions.Transactions"></activity>
+        <activity android:name=".admin.suggestions.AdminSuggestions"
+            android:theme="@style/customActionBar" />
+        <activity android:name=".admin.stocks.Stocks" />
+        <activity android:name=".admin.categories.AddCategories"
             android:theme="@style/customActionBar"/>
-        <activity android:name=".feedback.Suggestions"
+        <activity
+            android:name=".login.ForgetPassword"
+            android:theme="@style/customActionBar" />
+        <activity
+            android:name=".feedback.About"
+            android:theme="@style/customActionBar" />
+        <activity
+            android:name=".feedback.Suggestions"
             android:theme="@style/customActionBar" />
         <activity
             android:name=".user.product.UserProduct"

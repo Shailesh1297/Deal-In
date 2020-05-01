@@ -2,9 +2,6 @@ package com.example.dealin.user.home;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,7 +23,7 @@ import android.widget.TextView;
 import com.example.dealin.R;
 import com.example.dealin.connection.Connection;
 import com.example.dealin.login.User;
-import com.example.dealin.user.home.Product;
+
 import com.google.gson.Gson;
 
 import org.json.JSONArray;

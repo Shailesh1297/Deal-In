@@ -4,27 +4,19 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
-
 import com.example.dealin.R;
-import com.example.dealin.location.Location;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+
 
 public class AddColleges extends AppCompatActivity implements View.OnClickListener {
     ImageView back,location;
@@ -59,7 +51,8 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
         title=(TextView)v.findViewById(R.id.bar_title);
         title.setText("Colleges");
         location=(ImageView)v.findViewById(R.id.action_bar_location);
-        location.setOnClickListener(this);
+        location.setVisibility(View.GONE);
+
     }
 
     public void onClick(View v)
@@ -68,11 +61,7 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
         {
             onBackPressed();
         }
-        if(v==location)
-        {
-            Intent intent=new Intent(getBaseContext(), Location.class);
-            startActivity(intent);
-        }
+
         //floating button
         if(v==floatingAdd)
         {
@@ -108,8 +97,4 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
         relativeLayout=findViewById(R.id.relativelayout_1_add_college);
     }
 
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-    }
 }

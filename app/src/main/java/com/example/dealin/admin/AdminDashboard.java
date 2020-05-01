@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.dealin.R;
+import com.example.dealin.admin.categories.AddCategories;
 import com.example.dealin.admin.colleges.AddColleges;
 import com.example.dealin.admin.user.AdminUser;
 import com.example.dealin.location.Location;
@@ -16,7 +17,7 @@ import com.example.dealin.profile.Profile;
 
 public class AdminDashboard extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView adminProfile,adminLocation,adminColleges,adminUser;
+    ImageView adminProfile,adminLocation,adminColleges,adminUser,adminCategories,adminStocks,adminSuggestions,adminTransactions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,11 @@ public class AdminDashboard extends AppCompatActivity implements View.OnClickLis
             Intent intent=new Intent(getBaseContext(), AdminUser.class);
             startActivity(intent);
         }
+        if(v==adminCategories)
+        {
+            Intent intent=new Intent(getBaseContext(), AddCategories.class);
+            startActivity(intent);
+        }
     }
 
     public void addWidgets()
@@ -70,8 +76,9 @@ public class AdminDashboard extends AppCompatActivity implements View.OnClickLis
 
         adminColleges=findViewById(R.id.add_colleges);
         adminColleges.setOnClickListener(this);
-
         adminUser=findViewById(R.id.admin_user);
         adminUser.setOnClickListener(this);
+        adminCategories=findViewById(R.id.add_categories);
+        adminCategories.setOnClickListener(this);
     }
 }

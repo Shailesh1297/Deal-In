@@ -7,98 +7,99 @@
     android:orientation="vertical"
     tools:context=".admin.user.AdminUser">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="192dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-
-        <TextView
-            android:id="@+id/admin_total_user"
-            android:layout_width="wrap_content"
+      <!--statitics-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="9dp"
-            android:text="@string/total" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/admin_total_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="11dp"
-            android:layout_toEndOf="@+id/current_user"
-            android:text="123" />
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+             android:layout_weight="2">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="4dp"
+                 android:padding="4dp"
+                 android:text="@string/total" />
 
-        <TextView
-            android:id="@+id/current_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/admin_total_user"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="26dp"
-            android:text="@string/current" />
+             <TextView
+                 android:id="@+id/admin_total_user"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="4dp"
+                 android:padding="4dp"
+                 android:text="123" />
 
-        <TextView
-            android:id="@+id/current_user_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/admin_total_user"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="26dp"
-            android:layout_toEndOf="@+id/current_user"
-            android:text="123" />
+         </LinearLayout>
 
-        <TextView
-            android:id="@+id/user_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="12dp"
-            android:layout_toEndOf="@+id/admin_total_data"
-            android:text="@string/location" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <TextView
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="11dp"
-            android:layout_toEndOf="@+id/user_location"
-            android:text="abc" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:padding="4dp"
+                    android:text="@string/location" />
 
+                <TextView
+                    android:id="@+id/user_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:padding="4dp"
+                    android:text="abc" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+      <!--serach bar-->
+    <LinearLayout
+        android:id="@+id/admin_user_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <EditText
             android:id="@+id/user_search"
-            android:layout_width="275dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/current_user"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="31dp"
             android:drawableLeft="@drawable/search_icon"
             android:hint="userid or name"
             android:background="@drawable/rounded_corner_rectangle"
-            android:minHeight="50dp" />
+            android:minHeight="50dp"
+            android:layout_weight="1"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/current_user_data"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="29dp"
             android:minHeight="50dp"
-            android:layout_toEndOf="@+id/user_search"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
             android:text="search" />
 
-    </RelativeLayout>
+    </LinearLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
+        <ListView
+            android:id="@+id/user_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
 
 
 </LinearLayout>

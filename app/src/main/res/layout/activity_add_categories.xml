@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".admin.categories.AddCategories">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/admin_add_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="text"
+            android:minHeight="40dp"
+            android:maxLength="25"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            android:padding="2dp"
+            android:hint="Category"
+            android:background="@drawable/rounded_corner_rect_white"/>
+
+        <Button
+            android:id="@+id/add_category_but"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_margin="2dp"
+            android:padding="2dp"
+            android:text="ADD"/>
+
+    </LinearLayout>
+        <ListView
+            android:id="@+id/category_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:padding="4dp"
+            android:dividerHeight="4dp"
+            android:background="@drawable/rounded_corner_rectangle"/>
+</LinearLayout>
