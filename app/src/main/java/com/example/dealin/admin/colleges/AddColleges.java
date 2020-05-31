@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
     EditText college,city;
     RelativeLayout relativeLayout;
     TextView title;
+    ListView collegeList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
