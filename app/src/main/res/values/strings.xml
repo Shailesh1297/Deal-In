@@ -96,6 +96,10 @@
     <string name="product_name">NAME</string>
     <string name="product_price">PRICE</string>
     <string name="product_status">STATUS</string>
+    <string name="product_category">CATEGORY</string>
+    <!--Transaction-->
+    <string name="transaction_id">TRANSACTION\nID</string>
+    <string name="product_id_full">PRODUCT\nID</string>
 
     <!--project description-->
     <string name="project_description">
