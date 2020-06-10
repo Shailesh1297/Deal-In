@@ -101,6 +101,11 @@
     <string name="transaction_id">TRANSACTION\nID</string>
     <string name="product_id_full">PRODUCT\nID</string>
 
+    <!--UserAdmin-->
+    <string name="user_id">ID</string>
+    <string name="user_name">NAME</string>
+    <string name="user_status">STATUS</string>
+
     <!--project description-->
     <string name="project_description">
         Project-Type: MAJOR\n

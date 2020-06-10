@@ -7,10 +7,52 @@
     android:layout_height="match_parent"
     tools:context=".admin.colleges.AddColleges">
 
+    <LinearLayout
+        android:id="@+id/college_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/rounded_corner_appcolor_border"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/order_item"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/user_id"
+            android:textSize="16sp" />
+
+        <TextView
+            style="@style/order_item"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="COLLEGE"
+            android:textSize="16sp" />
+
+
+        <TextView
+            style="@style/order_item"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="CITY"
+            android:textSize="16sp" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/add_college_admin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/college_head"
+        android:layout_marginTop="10dp" />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
