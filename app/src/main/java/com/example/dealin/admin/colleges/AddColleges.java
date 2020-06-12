@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +18,23 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.example.dealin.R;
+import com.example.dealin.connection.Connection;
+import com.example.dealin.user.orders.Order;
+import com.example.dealin.utility.Helper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 
 
 public class AddColleges extends AppCompatActivity implements View.OnClickListener {
@@ -28,18 +46,25 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
     RelativeLayout relativeLayout;
     TextView title;
     ListView collegeList;
+    ArrayList<College> colleges;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_colleges);
-
        addActionBar();
         addWidgets();
 
-
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(getColleges()){
+            AddCollegeAdapter aca=new AddCollegeAdapter(AddColleges.this,colleges);
+            collegeList.setAdapter(aca);
+        }
+    }
 
     void addActionBar()
     {
@@ -83,7 +108,27 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
         }
         if(v==add)
         {
-            popupWindow.dismiss();
+            String collegeName,collegeCity;
+            collegeName=college.getText().toString();
+            collegeCity=city.getText().toString();
+            if(TextUtils.isEmpty(collegeName))
+            {
+                college.requestFocus();
+                college.setError("Field can't be empty");
+            }else if(TextUtils.isEmpty(collegeCity))
+            {
+                city.requestFocus();
+                city.setError("Field can't be empty");
+            }else
+            {
+                if(addCollege(collegeName,collegeCity))
+                {
+                    popupWindow.dismiss();
+                     Helper.toast(getApplicationContext(),"College Added");
+                     onStart();
+                }
+
+            }
         }
 
         if(v==close)
@@ -97,6 +142,111 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
         floatingAdd=findViewById(R.id.floatingActionButton);
         floatingAdd.setOnClickListener(this);
         relativeLayout=findViewById(R.id.relativelayout_1_add_college);
+        collegeList=findViewById(R.id.add_college_admin);
     }
+
+    public boolean getColleges()
+    {
+
+        StringBuilder stringBuilder=new StringBuilder();
+        String line="";
+        String page="college_list";
+        try{
+            HttpURLConnection conn= Connection.createConnection();
+            //output
+            OutputStream outputStream=conn.getOutputStream();
+            OutputStreamWriter outputStreamWriter=new OutputStreamWriter(outputStream,"UTF-8");
+            BufferedWriter bufferedWriter=new BufferedWriter(outputStreamWriter);
+            String dataEncode= URLEncoder.encode("page","UTF-8")+"="+URLEncoder.encode(page,"UTF-8");
+            bufferedWriter.write(dataEncode);
+            bufferedWriter.close();
+            outputStreamWriter.close();
+            outputStream.close();
+
+            //input
+            InputStream inputStream=conn.getInputStream();
+            InputStreamReader inputStreamReader=new InputStreamReader(inputStream,"UTF-8");
+            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
+            while((line=bufferedReader.readLine())!=null)
+            {
+                stringBuilder.append(line+"\n");
+            }
+            String dataDecode=stringBuilder.toString().trim();
+            JSONObject jsonObject=new JSONObject(dataDecode);
+
+            //  JSONObject jsonData=jsonObject.getJSONObject("flag");
+            int flag=jsonObject.getInt("flag");
+            if(flag==1)
+            {
+                JSONArray jsonArray=jsonObject.getJSONArray("0");
+                int length=jsonArray.length();
+
+                colleges=new ArrayList<>();
+                for(int i=0;i<length;i++)
+                {
+                    jsonObject=jsonArray.getJSONObject(i)  ;
+                   College college=new College();
+                   college.setCollegeId(jsonObject.getInt("college_id"));
+                    college.setCollegeName(jsonObject.getString("college_name"));
+                    college.setCollegeCity(jsonObject.getString("city"));
+                    colleges.add(college);
+                }
+                conn.disconnect();
+                return true;
+
+            }
+
+            conn.disconnect();
+
+        }catch (Exception e)
+        {
+            Log.d("Order",e.toString());
+        }
+
+        return false;
+
+    }
+
+    private boolean addCollege(String collegeName,String collegeCity)
+    {
+        StringBuilder stringBuilder=new StringBuilder();
+        String line="";
+        String page="add_college";
+        try {
+            HttpURLConnection conn = Connection.createConnection();
+            //output
+            OutputStream outputStream = conn.getOutputStream();
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
+            BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+            String dataEncode = URLEncoder.encode("page", "UTF-8") + "=" + URLEncoder.encode(page, "UTF-8") +
+                    "&" + URLEncoder.encode("college_name", "UTF-8") + "=" + URLEncoder.encode(collegeName, "UTF-8") +
+                    "&" + URLEncoder.encode("college_city", "UTF-8") + "=" + URLEncoder.encode(collegeCity, "UTF-8") ;
+            bufferedWriter.write(dataEncode);
+            bufferedWriter.close();
+            outputStreamWriter.close();
+            outputStream.close();
+            //input
+            InputStream inputStream = conn.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line + "\n");
+            }
+            String dataDecode = stringBuilder.toString().trim();
+
+            JSONObject jsonObject = new JSONObject(dataDecode);
+            int flag = jsonObject.getInt("flag");
+            Log.d("flagData", "" + flag);
+            conn.disconnect();
+            if (flag == 1) return true;
+        }
+        catch (Exception e)
+        {
+            Log.d("AddCollege",e.toString());
+        }
+        return false;
+    }
+
 
 }
