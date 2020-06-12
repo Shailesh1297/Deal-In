@@ -2,7 +2,13 @@ package com.example.dealin.login;
 
 public class User {
 
- private int userid,usertype,collegeid;
+ private int userid;
+ private int usertype;
+ private int collegeid;
+
+
+
+ private int isActive;
  private long mobile;
  private String name,email,password;
 
@@ -76,5 +82,12 @@ public class User {
 
  public void setPassword(String password) {
   this.password = password;
+ }
+ public int getIsActive() {
+  return isActive;
+ }
+
+ public void setIsActive(int isActive) {
+  this.isActive = isActive;
  }
 }

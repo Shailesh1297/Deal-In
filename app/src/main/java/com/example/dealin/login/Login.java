@@ -7,7 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +40,7 @@ public class Login extends AppCompatActivity {
     Button login;
     TextView register,forgetPass;
     EditText email,password;
+    boolean eye=false;
     private int userType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class Login extends AppCompatActivity {
         StrictMode.ThreadPolicy threadPolicy=new StrictMode.ThreadPolicy.Builder().build();
         StrictMode.setThreadPolicy(threadPolicy);
         addWidgets();
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,5 +200,51 @@ public class Login extends AppCompatActivity {
         email=findViewById(R.id.login_email_input);
         password=findViewById(R.id.login_password_input);
         forgetPass=findViewById(R.id.forget_pass);
+        email.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent)
+            {
+                final int DRAWABLE_RIGHT = 2;
+
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    if (motionEvent.getRawX() >= (email.getRight() - email.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        //Here is your code when you click drawable right
+                        email.setText("");
+                        return true;
+                    }
+
+                }
+                return false;
+            }
+        });
+
+        password.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent)
+            {
+                final int DRAWABLE_RIGHT = 2;
+
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    if (motionEvent.getRawX() >= (password.getRight() - password.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        //Here is your code when you click drawable right
+                        if(!eye)
+                        {
+                            password.setTransformationMethod(null);
+                            eye=true;
+                        }else
+                        {
+                            password.setTransformationMethod(new PasswordTransformationMethod());
+                            eye=false;
+                        }
+                        return true;
+                    }
+
+                }
+                return false;
+            }
+        });
+
     }
+
+
 }

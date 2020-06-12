@@ -200,7 +200,7 @@ public class AddColleges extends AppCompatActivity implements View.OnClickListen
 
         }catch (Exception e)
         {
-            Log.d("Order",e.toString());
+            Log.d("Get Colleges",e.toString());
         }
 
         return false;

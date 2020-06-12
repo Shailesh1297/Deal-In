@@ -82,6 +82,7 @@
             android:layout_weight="1"/>
 
         <Button
+            android:id="@+id/user_search_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="50dp"
@@ -131,7 +132,7 @@
                 />
 
         </LinearLayout>
-        <ListView
+        <ExpandableListView
             android:id="@+id/user_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

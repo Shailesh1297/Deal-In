@@ -56,7 +56,8 @@
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:maxLength="25"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:drawableRight="@drawable/ic_close_24"/>
 
     <TextView
         android:id="@+id/password_txt"
@@ -82,7 +83,8 @@
         android:layout_marginTop="369dp"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:drawableRight="@drawable/ic_eye_24"/>
 
     <TextView
         android:id="@+id/forget_pass"
