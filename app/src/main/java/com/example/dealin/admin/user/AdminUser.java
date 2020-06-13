@@ -55,18 +55,20 @@ public class AdminUser extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onStart() {
         super.onStart();
+        count=0;
         if(getUsers())
         {
             AdminUserAdapter aua=new AdminUserAdapter(getApplicationContext(),users);
             userList.setAdapter(aua);
+            totalUsers.setText(""+count);
+            if(!getCollege().equals(null))
+            {
+                usersLocation.setText(college);
+
+            }
 
         }
-        totalUsers.setText(""+count);
-        if(!getCollege().equals(null))
-        {
-            usersLocation.setText(college);
 
-        }
     }
 
     void addActionBar()

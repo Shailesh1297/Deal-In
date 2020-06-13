@@ -8,10 +8,49 @@ import java.net.URL;
 
 public class Order {
 
-    private int orderId,deal;
-    private String paymentMode,venue,itemName,itemPrice,itemCategory,itemDescription,itemImage,sellerName,sellerEmail,sellerMobile;
+    private int orderId,deal,itemId,buyerId,sellerId;
+    private String paymentMode,venue,itemName,itemPrice,itemCategory,itemDescription,itemImage,sellerName,sellerEmail,sellerMobile,orderedOn,deliveredOn;
     private Bitmap bitmap;
 
+    public int getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+
+    public int getBuyerId() {
+        return buyerId;
+    }
+
+    public void setBuyerId(int buyerId) {
+        this.buyerId = buyerId;
+    }
+
+    public int getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(int sellerId) {
+        this.sellerId = sellerId;
+    }
+
+    public String getOrderedOn() {
+        return orderedOn;
+    }
+
+    public void setOrderedOn(String orderedOn) {
+        this.orderedOn = orderedOn;
+    }
+
+    public String getDeliveredOn() {
+        return deliveredOn;
+    }
+
+    public void setDeliveredOn(String deliveredOn) {
+        this.deliveredOn = deliveredOn;
+    }
 
     public int getOrderId() {
         return orderId;

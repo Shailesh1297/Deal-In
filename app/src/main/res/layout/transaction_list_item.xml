@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/rounded_corner_rectangle">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:padding="1dp"
         android:orientation="horizontal">
         <!--box one-->
         <LinearLayout
@@ -37,7 +39,7 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
-            <!--Seller Name-->
+            <!--Seller id-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,7 +90,7 @@
 
             </LinearLayout>
 
-            <!--delivered on-->
+            <!--ordered on-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,15 +105,14 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/transaction_ordered"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="DD"
-                    android:textSize="14sp" />
-
             </LinearLayout>
+            <TextView
+                android:id="@+id/transaction_ordered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="DD"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -119,7 +120,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.2"
             android:orientation="vertical">
             <!--Item id-->
             <LinearLayout
@@ -148,7 +149,7 @@
 
 
 
-            <!--payment buyer name information-->
+            <!--buyer id-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -207,20 +208,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="Delivered"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/transaction_delivered"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="DD"
-                    android:textSize="14sp" />
-
             </LinearLayout>
+            <TextView
+                android:id="@+id/transaction_delivered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="DD"
+                android:textSize="14sp" />
 
         </LinearLayout>
 

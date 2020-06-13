@@ -53,7 +53,7 @@ public class MessageFragment extends Fragment {
         // Inflate the layout for this fragment
         v=inflater.inflate(R.layout.fragment_message, container, false);
         addWidgets();
-        if(getDeliveries(getUserId()))
+        if(getMessages(getUserId()))
         {
             MessageExpandableAdapter da=new MessageExpandableAdapter(getActivity().getBaseContext(),message);
             messages.setAdapter(da);
@@ -61,7 +61,8 @@ public class MessageFragment extends Fragment {
         return v;
     }
 
-    public boolean getDeliveries(int user_id)
+    //getting messages of user
+    public boolean getMessages(int user_id)
     {
 
         StringBuilder stringBuilder=new StringBuilder();
