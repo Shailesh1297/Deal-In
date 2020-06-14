@@ -73,7 +73,7 @@ public class TransactionAdapter extends BaseExpandableListAdapter {
         status=(ImageView)view.findViewById(R.id.item_delivery_status);
         tId.setText(""+transactions.get(i).getOrderId());
         pId.setText(""+transactions.get(i).getItemId());
-        price.setText(""+transactions.get(i).getItemPrice());
+        price.setText("\u20B9"+transactions.get(i).getItemPrice());
         if(transactions.get(i).getDeal()==1)
         {
             status.setImageResource(R.drawable.ic_delivered_24dp);

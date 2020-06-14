@@ -47,7 +47,7 @@ public class StockAdapter  extends BaseAdapter {
         category=(TextView)view.findViewById(R.id.stock_item_category);
         id.setText(""+products.get(i).getId());
         name.setText(products.get(i).getTitle());
-        price.setText(products.get(i).getPrice());
+        price.setText("\u20B9"+products.get(i).getPrice());
         category.setText(products.get(i).getCategory());
         return view;
     }

@@ -59,7 +59,7 @@ public class OrderAdapter extends BaseAdapter {
         orderStatus=(ImageView)view.findViewById(R.id.product_delivery_status);
         orderId.setText(String.valueOf(orders.get(i).getOrderId()));
         orderName.setText(orders.get(i).getItemName());
-        orderAmount.setText(orders.get(i).getItemPrice());
+        orderAmount.setText("\u20B9"+orders.get(i).getItemPrice());
                 if(orders.get(i).getDeal()==0)
                 {
                     orderStatus.setImageResource(R.drawable.ic_undelivered_24dp);

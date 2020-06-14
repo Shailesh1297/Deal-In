@@ -1,14 +1,37 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    def versionPropsFile=file('version.properties')
+    if(versionPropsFile.canRead())
+    {
+        def Properties versionProps=new Properties()
+
+        versionProps.load(new FileInputStream(versionPropsFile))
+        def versionBuild=versionProps['VERSION_BUILD'].toInteger()+1
+        def versionMajor=versionProps['VERSION_MAJOR'].toInteger()
+        def versionMinor=versionProps['VERSION_MINOR'].toInteger()
+
+        versionProps['VERSION_BUILD']=versionBuild.toString()
+        versionProps.store(versionPropsFile.newWriter(),null)
+
+        defaultConfig{
+            versionCode versionBuild
+            versionName "${versionMajor}.${versionMinor}."+String.format("%05d",versionBuild)
+        }
+    }else {
+        throw new GradleException("could not read version.properties")
+    }
+
+
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.dealin"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode versionCode
+        versionName versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

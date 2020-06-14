@@ -107,7 +107,7 @@ public class DeliverExpandableAdapter extends BaseExpandableListAdapter {
         //values
         orderId.setText(String.valueOf(deliver.get(i).getOrderId()));
         itemName.setText(deliver.get(i).getItemName());
-        itemPrice.setText(deliver.get(i).getItemPrice());
+        itemPrice.setText("\u20B9"+deliver.get(i).getItemPrice());
         if(deliver.get(i).getDeliveryStatus()==0)
         {
             deliverStatus.setImageResource(R.drawable.ic_undelivered_24dp);

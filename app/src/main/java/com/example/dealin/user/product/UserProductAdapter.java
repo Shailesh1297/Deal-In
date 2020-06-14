@@ -53,7 +53,7 @@ public class UserProductAdapter extends BaseAdapter {
 
         pdt_name.setText(userProduct.get(i).getTitle());
         pdt_category.setText(userProduct.get(i).getCategory());
-        pdt_price.setText(userProduct.get(i).getPrice());
+        pdt_price.setText("\u20B9"+userProduct.get(i).getPrice());
         ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

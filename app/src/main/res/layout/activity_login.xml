@@ -110,6 +110,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="198dp"
         android:layout_marginTop="474dp"
+        android:background="@drawable/rounded_corner_appcolor_border"
         android:text="@string/login" />
 
     <TextView

@@ -41,7 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position){
        try {
            holder.tv_product_title.setText(mData.get(position).getTitle());
-           holder.tv_product_price.setText(mData.get(position).getPrice());
+           holder.tv_product_price.setText("\u20B9"+mData.get(position).getPrice());
            holder.iv_product_thumbnail.setImageBitmap(mData.get(position).getThumbnail());
        }catch (Exception e)
        {

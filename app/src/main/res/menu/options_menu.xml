@@ -4,6 +4,9 @@
         android:id="@+id/suggestions"
         android:title="Suggestions"/>
     <item
+        android:id="@+id/updater"
+        android:title="Update"/>
+    <item
         android:id="@+id/about_us"
         android:title="About Us"/>
 

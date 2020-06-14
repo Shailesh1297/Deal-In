@@ -18,6 +18,7 @@ import com.example.dealin.R;
 import com.example.dealin.feedback.About;
 import com.example.dealin.feedback.Suggestions;
 import com.example.dealin.profile.Profile;
+import com.example.dealin.updater.Update;
 import com.example.dealin.user.product.AddProductFragment;
 import com.example.dealin.user.home.HomeFragment;
 import com.example.dealin.user.message.MessageFragment;
@@ -116,6 +117,10 @@ public class UserHome extends AppCompatActivity implements View.OnClickListener 
             case R.id.about_us:
                                  intent=new Intent(UserHome.this, About.class);
                                 startActivity(intent);
+                break;
+            case R.id.updater:
+                                    intent=new Intent(UserHome.this, Update.class);
+                                    startActivity(intent);
                 break;
             default:
 
