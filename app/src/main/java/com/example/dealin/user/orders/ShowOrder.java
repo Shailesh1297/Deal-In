@@ -45,7 +45,7 @@ public class ShowOrder extends AppCompatActivity implements View.OnClickListener
             orderCategory.setText(order.getItemCategory());
             orderDescription.setText(order.getItemDescription());
             orderPayMode.setText(order.getPaymentMode());
-            orderAmount.setText(order.getItemPrice());
+            orderAmount.setText("\u20B9"+order.getItemPrice());
             orderVenue.setText(order.getVenue());
             sellerName.setText(order.getSellerName());
             sellerEmail.setText(order.getSellerEmail());

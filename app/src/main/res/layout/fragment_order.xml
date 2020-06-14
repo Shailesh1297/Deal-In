@@ -23,6 +23,7 @@
             </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/relative_order_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/order_top_layout">

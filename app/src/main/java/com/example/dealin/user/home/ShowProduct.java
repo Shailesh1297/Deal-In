@@ -76,7 +76,7 @@ public class ShowProduct extends AppCompatActivity implements View.OnClickListen
 
             product_title.setText(title);
             product_category.setText(category);
-            product_price.setText(price);
+            product_price.setText("\u20B9"+price);
             product_description.setText(description);
             product_thumbnail.setImageBitmap(thumbnail);
         }catch (Exception e)

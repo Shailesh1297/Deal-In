@@ -1,6 +1,7 @@
 package com.example.dealin.user.home;
 
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.dealin.R;
@@ -38,11 +41,11 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-
+    ProgressBar progressBar;
     List<Product>productList;
     RecyclerView recyclerView;
     TextView collegeName;
-    LinearLayout ll;
+    LinearLayout ll,pl;
     String college;
     int collegId,userId;
     public HomeFragment() {
@@ -61,6 +64,7 @@ public class HomeFragment extends Fragment {
         recyclerView=(RecyclerView)view.findViewById(R.id.home_recycler_view);
         collegeName=(TextView)view.findViewById(R.id.home_college_name);
         ll=(LinearLayout)view.findViewById(R.id.home_filters);
+        pl=(LinearLayout)view.findViewById(R.id.products_layout);
         ll.setVisibility(View.GONE);
         return view;
     }
@@ -72,13 +76,15 @@ public class HomeFragment extends Fragment {
         userId=getUserId();
         getCollege(collegId);
         collegeName.setText(college);
+        HomeFragmentTask hft=new HomeFragmentTask();
+        hft.execute(userId);
 
-        if(allProducts(userId))
+        /*if(allProducts(userId))
         {
             RecyclerViewAdapter rva=new RecyclerViewAdapter(getActivity().getBaseContext(),productList);
             recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getBaseContext(),3));
             recyclerView.setAdapter(rva);
-         }
+         }*/
 
 
 
@@ -209,5 +215,39 @@ public class HomeFragment extends Fragment {
             return user.getUserid();
         }
         return 0;
+    }
+
+
+    class HomeFragmentTask extends AsyncTask<Integer,Void,Boolean>
+    {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar=new ProgressBar(getActivity().getApplicationContext(),null,android.R.attr.progressBarStyleLarge);
+            LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(100,100);
+            params.gravity= Gravity.CENTER;
+            pl.addView(progressBar,params);
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Boolean doInBackground(Integer... integers) {
+            boolean gp=allProducts(integers[0]);
+            return gp;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            if(aBoolean)
+            {
+                progressBar.setVisibility(View.GONE);
+                RecyclerViewAdapter rva=new RecyclerViewAdapter(getActivity().getBaseContext(),productList);
+                recyclerView.setLayoutManager(new GridLayoutManager(getActivity().getBaseContext(),3));
+                recyclerView.setAdapter(rva);
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.dealin.user.message;
 
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import com.example.dealin.R;
@@ -18,6 +21,7 @@ import com.example.dealin.connection.Connection;
 import com.example.dealin.login.User;
 import com.example.dealin.user.deliver.Deliver;
 import com.example.dealin.user.deliver.DeliverExpandableAdapter;
+import com.example.dealin.user.orders.OrderAdapter;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -42,6 +46,8 @@ public class MessageFragment extends Fragment {
     ExpandableListView messages;
     View v;
     ArrayList<Message>message;
+    RelativeLayout pl;
+    ProgressBar progressBar;
     public MessageFragment() {
         // Required empty public constructor
     }
@@ -53,12 +59,20 @@ public class MessageFragment extends Fragment {
         // Inflate the layout for this fragment
         v=inflater.inflate(R.layout.fragment_message, container, false);
         addWidgets();
-        if(getMessages(getUserId()))
+
+        return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        MessageFragmentTask mft=new MessageFragmentTask();
+        mft.execute(getUserId());
+       /* if(getMessages(getUserId()))
         {
             MessageExpandableAdapter da=new MessageExpandableAdapter(getActivity().getBaseContext(),message);
             messages.setAdapter(da);
-        }
-        return v;
+        }*/
     }
 
     //getting messages of user
@@ -145,5 +159,38 @@ public class MessageFragment extends Fragment {
         msg_type=(Spinner)v.findViewById(R.id.message_type_dropdown);
         msg_type.setVisibility(View.GONE);
         messages=(ExpandableListView)v.findViewById(R.id.message_list);
+        pl=(RelativeLayout)v.findViewById(R.id.relative_message_layout);
+    }
+
+    class MessageFragmentTask extends AsyncTask<Integer,Void,Boolean>
+    {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar=new ProgressBar(getActivity().getApplicationContext(),null,android.R.attr.progressBarStyleLarge);
+            RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(100,100);
+            params.addRule(RelativeLayout.CENTER_IN_PARENT);
+            pl.addView(progressBar,params);
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Boolean doInBackground(Integer... integers) {
+            boolean gp=getMessages(integers[0]);
+            return gp;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            if(aBoolean)
+            {
+                progressBar.setVisibility(View.GONE);
+                MessageExpandableAdapter da=new MessageExpandableAdapter(getActivity().getBaseContext(),message);
+                messages.setAdapter(da);
+            }
+        }
     }
 }

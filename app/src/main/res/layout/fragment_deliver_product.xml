@@ -24,6 +24,7 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/relative_deliver_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/deliver_top_layout">

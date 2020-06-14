@@ -2,22 +2,28 @@ package com.example.dealin.user.orders;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import com.example.dealin.R;
 import com.example.dealin.connection.Connection;
 import com.example.dealin.login.User;
 import com.example.dealin.user.home.Product;
+import com.example.dealin.user.home.RecyclerViewAdapter;
 import com.example.dealin.user.home.ShowProduct;
 import com.google.gson.Gson;
 
@@ -44,6 +50,8 @@ public class OrderFragment extends Fragment {
     ListView orders;
     View v;
     ArrayList<Order> order;
+    RelativeLayout pl;
+    ProgressBar progressBar;
     public OrderFragment() {
         // Required empty public constructor
     }
@@ -55,16 +63,22 @@ public class OrderFragment extends Fragment {
         // Inflate the layout for this fragment
         v=inflater.inflate(R.layout.fragment_order, container, false);
         addWidgets();
-        if(getOrders(getUserId()))
-        {
-            OrderAdapter odap=new OrderAdapter(getActivity().getApplicationContext(),order);
-            orders.setAdapter(odap);
-        }
+
 
         return v;
     }
 
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        OrderFragmentTask oft=new OrderFragmentTask();
+        oft.execute(getUserId());
+      /*  if(getOrders(getUserId()))
+        {
+            OrderAdapter odap=new OrderAdapter(getActivity().getApplicationContext(),order);
+            orders.setAdapter(odap);
+        }*/
+    }
 
     public boolean getOrders(int user_id)
     {
@@ -155,5 +169,38 @@ public class OrderFragment extends Fragment {
         order_type=(Spinner)v.findViewById(R.id.orders_type_dropdown);
         order_type.setVisibility(View.GONE);
         orders=(ListView)v.findViewById(R.id.order_list);
+        pl=(RelativeLayout)v.findViewById(R.id.relative_order_layout);
+    }
+
+    class OrderFragmentTask extends AsyncTask<Integer,Void,Boolean>
+    {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar=new ProgressBar(getActivity().getApplicationContext(),null,android.R.attr.progressBarStyleLarge);
+            RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(100,100);
+            params.addRule(RelativeLayout.CENTER_IN_PARENT);
+            pl.addView(progressBar,params);
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Boolean doInBackground(Integer... integers) {
+            boolean gp=getOrders(integers[0]);
+            return gp;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            if(aBoolean)
+            {
+                progressBar.setVisibility(View.GONE);
+                OrderAdapter odap=new OrderAdapter(getActivity().getApplicationContext(),order);
+                orders.setAdapter(odap);
+            }
+        }
     }
 }

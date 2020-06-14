@@ -8,17 +8,20 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.StrictMode;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +30,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -35,6 +40,7 @@ import com.example.dealin.R;
 import com.example.dealin.connection.Connection;
 import com.example.dealin.login.User;
 import com.example.dealin.user.home.Product;
+import com.example.dealin.user.home.RecyclerViewAdapter;
 import com.example.dealin.user.orders.Order;
 import com.google.gson.Gson;
 
@@ -64,6 +70,8 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
     ImageView pdt_img;
     Button save;
     View v;
+    LinearLayout pl;
+    ProgressBar progressBar;
     ListView productList;
     ArrayAdapter<String>categoryAdapter;
     private String selectedCategory;
@@ -97,11 +105,13 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
     public void onStart() {
         super.onStart();
 
-        if(userProducts(getUserId()))
+        ProductFragmentTask pft=new ProductFragmentTask();
+        pft.execute(getUserId());
+       /* if(userProducts(getUserId()))
         {
             UserProductAdapter upa=new UserProductAdapter(getActivity().getBaseContext(),userProduct);
             productList.setAdapter(upa);
-        }
+        }*/
 
     }
 
@@ -439,6 +449,39 @@ public class AddProductFragment extends Fragment implements View.OnClickListener
         save=(Button)v.findViewById(R.id.add_product);
         save.setOnClickListener(this);
         productList=(ListView)v.findViewById(R.id.products_list);
+        pl=(LinearLayout)v.findViewById(R.id.layout_add_product_top);
+    }
+
+    class ProductFragmentTask extends AsyncTask<Integer,Void,Boolean>
+    {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar=new ProgressBar(getActivity().getApplicationContext(),null,android.R.attr.progressBarStyleLarge);
+            LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(100,100);
+            params.gravity= Gravity.CENTER;
+            pl.addView(progressBar,params);
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Boolean doInBackground(Integer... integers) {
+            boolean gp=userProducts(integers[0]);
+            return gp;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            if(aBoolean)
+            {
+                progressBar.setVisibility(View.GONE);
+                UserProductAdapter upa=new UserProductAdapter(getActivity().getBaseContext(),userProduct);
+                productList.setAdapter(upa);
+            }
+        }
     }
 
 
